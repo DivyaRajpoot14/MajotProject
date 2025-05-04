@@ -1,0 +1,454 @@
+
+/* Card styling */
+/* General Section Style */
+.container.my-6 {
+    width: 100%;
+    margin-left: 6%;
+  
+   /* Optional: Adds rounded corners */
+  }
+  .list-group-item{
+    background-color: white;
+    color:#000
+  }
+  .blog-container {
+    width: 100dvw;
+    padding: 20px;
+    display: flex;
+  
+  }
+  
+  .description{
+    width: 70%;
+  
+  }
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+    width: 60dvw;
+    height: 100%;
+    justify-content: start;
+  }
+  .rightdiv-section {
+    width: 40%;
+    height: 100%;
+  }
+  .searchbar-section{
+    width: 90%;
+  }
+  /* Default Image Section (Laptop/Desktop) */
+  .image-section {
+    width: 70%; /* Default width for larger screens */
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 1024px){
+  .searchbar-section{
+    width: 90%;
+  }
+  }
+  @media (max-width: 991px){
+    .blog-container {
+      width: 100dvw;
+      padding: 20px;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+    .searchbar-section{
+      width: 90%;
+    }
+    .image-widget{
+      display: none;
+    }
+    .latest-blogs{
+      display: none;
+    }
+    .blog-categories {
+      width: 90%;
+      display: flex;
+      justify-content: center; /* Centers the categories */
+      padding: 10px;
+    }
+    
+    .categories-list {
+      display: flex;
+      flex-direction: row; /* Ensures items stay in one row */
+      justify-content: center;
+      gap: 15px; /* Adds spacing between items */
+      flex-wrap: nowrap; /* Prevents wrapping */
+      overflow-x: auto; /* Enables horizontal scrolling if needed */
+      white-space: nowrap; /* Prevents items from breaking to a new line */
+    }
+    
+    .categories-list h2 {
+  
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    
+    .categories-list h2:hover {
+      background: #ffcc00;
+    }
+    
+    
+    }
+    
+  
+  /* Blog Card Container */
+  .blog-card-div {
+    height:300px;
+    width: 100%;
+    display: flex;
+    padding-bottom: 25px;
+    border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    border-bottom: 4px solid green;
+  }
+  .image-section {
+    width: 40%; /* 40% width for image */
+    height: 100%; /* 40% height */
+  }
+  .description {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+     width: 60%; /* Description takes 60% width */
+   }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .imagediv-blog h1 {
+      font-size: 6rem !important;
+  }
+  .searchbar-section{
+    width: 90%;
+  }
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+    .blog-content {
+      width: 100%; /* Full width on tablets and mobile */
+    }
+  
+    .blog-card-div {
+      flex-direction: row; /* Keep row layout for tablet/mobile */
+      align-items: center; /* Align image and content properly */
+    }
+  
+    .image-section {
+      width: 40%; /* 40% width for image */
+      height: 100%; /* 40% height */
+    }
+  
+    .description {
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: start;
+      width: 60%; /* Description takes 60% width */
+    }
+  
+    .blog-title {
+      font-size: 1.5rem; /* Reduce title size */
+    }
+  
+    .blog-author, .content-formated {
+      font-size: 1rem; /* Adjust font size for better readability */
+    }
+    .blog-categories {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .blog-categories h4 {
+      /* color: #ffc107; /* Warning color */
+      /* margin-bottom: 10px; */ 
+      display:none;
+  
+    }
+    
+    .list-unstyled {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row; /* Ensures categories are in one row */
+      justify-content: center;
+      gap: 15px; /* Adds spacing between items */
+      flex-wrap: nowrap; /* Prevents wrapping */
+      overflow-x: auto; /* Enables horizontal scrolling if needed */
+      white-space: nowrap; /* Prevents items from breaking to a new line */
+      
+      /* Hides scrollbar */
+      scrollbar-width: none; /* For Firefox */
+      -ms-overflow-style: none; /* For IE and Edge */
+  }
+  
+  /* Hides scrollbar for WebKit-based browsers (Chrome, Safari) */
+  .list-unstyled::-webkit-scrollbar {
+      display: none;
+  }
+  
+    .list-unstyled li {
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s ease-in-out;
+    }
+    
+    .list-unstyled li a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .list-unstyled li:hover {
+      background: #ffcc00;
+    }
+    .pagination {
+      gap: 4px;
+      padding: 10px;
+    }
+  
+    .pagination .page-link {
+      padding: 6px 12px;
+      font-size: 0.95rem;
+    }
+    .imagediv-blog h1 {
+      font-size: 6rem !important;
+  }
+  }
+  @media (max-width: 768px) { /* For tablets */
+    .imagediv-blog h1 {
+        font-size: 5rem !important;
+    }
+  }
+  
+  /* Extra Small Screens (Mobile) */
+  @media (max-width: 576px) {
+    .imagediv-blog h1 {
+      font-size: 4rem !important;
+  }
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+    .blog-content {
+      width: 100%; /* Full width on tablets and mobile */
+    }
+  
+    .blog-card-div {
+        height: 180px;;
+      width: 100%;
+      flex-direction: row; /* Keep row layout for tablet/mobile */
+      align-items:start; /* Align image and content properly */
+    }
+  
+    .image-section {
+      width:40%; /* 40% width for image */
+      height: 100%; /* 40% height */
+    }
+  
+    .description {
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: start;
+     height: 100%;
+      width: 60%; /* Description takes 60% width */
+    }
+  
+    .blog-title {
+      font-size: 1.25rem; /* Reduce title size */
+    }
+  
+    .blog-author, .content-formated {
+      font-size: 1rem; /* Adjust font size for better readability */
+    }
+  
+   
+    .list-unstyled {
+      justify-content: flex-start; /* Ensure smooth scrolling */
+    }
+    .pagination {
+      gap: 2px;
+      padding: 6px;
+    }
+  
+    .pagination .page-link {
+      padding: 5px 10px;
+      font-size: 0.85rem;
+    }
+  }
+  @media (max-width: 441px) {
+    .imagediv-blog h1 {
+      font-size: 3rem !important;
+  }
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+    .blog-content {
+      width: 100%; /* Full width on tablets and mobile */
+    }
+  
+    .blog-card-div {
+      width: 90%;
+      flex-direction: row; /* Keep row layout for tablet/mobile */
+      align-items: start; /* Align image and content properly */
+    }
+  
+    .image-section {
+      width: 50%; /* 40% width for image */
+      height: 100%; /* 40% height */
+    }
+  .description{
+    width: 50%; /* 40% width for image */
+    height: 100%; /* 40% height */
+  }
+     
+   
+    .pagination {
+      gap: 2px;
+      padding: 4px;
+    }
+  
+    .pagination .page-link {
+      padding: 4px 9px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .imagediv-blog h1 {
+      font-size: 2.5rem !important;
+  }
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+    .blog-content {
+      width: 100%; /* Full width on tablets and mobile */
+    }
+  
+    .blog-card-div {
+      width: 100%;
+      height: 160px;
+      flex-direction: row; /* Keep row layout for tablet/mobile */
+      align-items: start; /* Align image and content properly */
+    }
+  
+    .image-section {
+      width: 40%; /* 40% width for image */
+      height: 100%; /* 40% height */
+    }
+  .description{
+    width: 60%; /* 40% width for image */
+    height: 100%; /* 40% height */
+    overflow-y: scroll;
+      /* Hides scrollbar */
+      scrollbar-width: none; /* For Firefox */
+      -ms-overflow-style: none;
+  }
+  
+    .pagination {
+      gap: 1px;
+      padding: 3px;
+    }
+  
+    .pagination .page-link {
+      padding: 3px 8px;
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .imagediv-blog h1 {
+      font-size: 1.5rem !important;
+  }
+    
+    .rightdiv-section {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .pagination {
+      gap: 1px;
+      padding: 2px;
+    }
+  
+    .pagination .page-link {
+      padding: 2px 6px;
+      font-size: 0.7rem;
+    }
+  }
+  
+  .readbtn{
+    width: 100px;
+  height: 30px;
+  }
+  .read-more-container {
+    margin-top: 10px; /* Adds spacing */
+    align-self: flex-end; /* Ensures button aligns at bottom when expanded */
+  }
+  .content-formated{
+    height: 50px;
+  }
+  .blog-contents {
+    flex: 1; /* Allows the text content to fill the remaining space */
+    padding: 15px;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .blog-contents{
+    width: 60%;
+  }
+  .blog-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:white;
+  }
+  
+  .blog-author {
+    font-size: 0.9rem;
+    color:white;
+  }
+  
+  .imagediv-blog{
+    width: 100dvw;
+    height: 50vh;
+    background-image: url('../assets/flowers-notebook-near-laptop_23-2147759307.avif');
+    background-position: center;
+    background-size: cover;
+  
+  }
+  .imagediv-blog h1{
+      font-size: 7rem;
+      font-weight: bolder;
+      text-decoration: underline;
+  }
+  
+  
+  .latest-blogs{
+    width: 90%;
+    height: 50%;
+  }
+  
