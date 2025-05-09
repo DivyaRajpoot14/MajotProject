@@ -1,17 +1,17 @@
-import express from 'express';
+import dotenv from 'dotenv';
+import connectDB from './database/dbConnect.js';
+import { app } from "./app.js"
 
-const app = express();
+dotenv.config({
+    path:'./env'
+})
 
-app.get("/",(req,res)=>{
-    console.log("Hello World");
-});
+const Port = process.env.PORT||5000;
 
-try {
-    app.listen(4500,()=>{
-        console.log("Server is running on port 4500");
+connectDB().then(()=>{
+    app.listen(Port,()=>{
+        console.log(`Server is running on port ${Port}`);
     });
-    
-} catch (error) {
-    console.log(error);
-    
-}
+}).catch((error)=>{
+    console.log(error); 
+})
