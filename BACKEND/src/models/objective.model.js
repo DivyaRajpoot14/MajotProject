@@ -8,7 +8,8 @@ const opjectiveSchema = new Schema({
     },
     option:{
         type:[string],
-        required: true
+        required: true,
+        validate: [optionLimt, 'Option exceeds the limit of 4']
     },
     question:{
         type: String,
@@ -19,5 +20,12 @@ const opjectiveSchema = new Schema({
         required: true
     },
 },{timestamps:true});
+
+function optionLimt(value){
+    if(value.length > 4){
+        throw new Error('Option limit exceeded');
+    }
+    return value;
+}
 
 export const Objective = model('Objective', opjectiveSchema);

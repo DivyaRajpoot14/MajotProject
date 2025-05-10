@@ -10,4 +10,7 @@ app.use("/user", userRoutes);
 import subjectRoutes from './routes/subject.routes.js';
 app.use("/subject", subjectRoutes);
 
+import objectiveRoutes from './routes/objective.routes.js';
+app.use("/objective", objectiveRoutes);
+
 export { app }; 
