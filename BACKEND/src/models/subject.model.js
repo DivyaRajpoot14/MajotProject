@@ -7,4 +7,5 @@ const subjectSchema = new Schema({
         required:true,
     }
 },{timestamps:true});
-const Subject = model("Subject",subjectSchema);
+
+export const Subject = model("Subject",subjectSchema);

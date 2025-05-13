@@ -1,8 +1,7 @@
-import {Subject} from '../models/subject.model.js';
+import { Subject } from '../models/subject.model.js'; 
 import asyncHandler from '../utilits/asyncHandler.js';
-import {ApiError} from '../utilits/ApiError.js';
-import {ApiResopnse} from '../utilits/ApiResopnse.js';
-import exp from 'constants';
+import { ApiError } from '../utilits/ApiError.js';
+import { ApiResponse } from '../utilits/ApiResopnse.js';
 
 const createSubject = asyncHandler(async (req, res) => {
     const {name} = req.body;
@@ -18,7 +17,7 @@ const createSubject = asyncHandler(async (req, res) => {
     if(!cheakSub) {
         throw new ApiError(400, 'Subject not created');
     }else{
-        res.json(new ApiResopnse(200,{Subject: cheakSub}, 'Subject created successfully'));
+        res.json(new ApiResponse(200,{Subject: cheakSub}, 'Subject created successfully'));
     }
 
 });
@@ -29,7 +28,7 @@ const getAllSubject = asyncHandler(async(req,res)=>{
         throw new ApiError(404,"Subject not found");
     }
     else{
-        res.json(new ApiResopnse(200,{subjects},'All subjects fetched successfully'));
+        res.json(new ApiResponse(200,{subjects},'All subjects fetched successfully'));
     }
 })
 
@@ -40,7 +39,7 @@ const deleteSubject = asyncHandler( async(req,res)=>{
         throw new ApiError(404,"Subject not found");
     }
     else{
-        res.json(new ApiResopnse(200,{subject},'Subject deleted successfully'));
+        res.json(new ApiResponse(200,{subject},'Subject deleted successfully'));
     }
 })
 
@@ -52,7 +51,7 @@ const updateSubject = asyncHandler(async(req,res)=>{
         throw new ApiError(404,"Subject not found");
     }
     else{
-        res.json(new ApiResopnse(200,{updateSub},'Subject updated successfully'));
+        res.json(new ApiResponse(200,{updateSub},'Subject updated successfully'));
     }
 })
 
