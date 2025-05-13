@@ -10,7 +10,7 @@ const SubNavbar=()=>{
       <div className="flex bg-white items-center h-16 ml-2 p-0 w-[100dvw]">
         <div className=" md:flex space-x-4">
           <NavLink
-            to="/c"
+            to="//quize"
             className={({ isActive }) =>
               ` text-blue-800 hover:scale-105  px-3 py-2 rounded-md text-sm font-medium ${
                 isActive ? "bg-blue-500 & text-white" : " bg-blue-500 & text-white"

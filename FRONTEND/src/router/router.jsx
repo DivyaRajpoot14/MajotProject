@@ -20,6 +20,8 @@ import Html from '../components/Quizecomponent/Html';
 import Css from '../components/Quizecomponent/Css';
 // import React from '../components/Quizecomponent/React';
 import Js from '../components/Quizecomponent/Js';
+import ScorePage from '../components/ScorePage/Scorepage';
+
 // Quiz Components
 
 const router = createBrowserRouter([
@@ -28,12 +30,13 @@ const router = createBrowserRouter([
     element: <Layout />, 
     children: [
       { path: '/', element: <HomePage /> },
-      { path: '/quize', element: <QuizPage/> },
+      { path: '/quize', element:  <C />  },
       { path: '/loginform', element: <Loginform /> },
+      {path:'score',element:<ScorePage/>},
       { path: '/signup', element: <Signup /> },
       { path: '/contact', element: <Contact /> },
       { path: '/profile', element: <Profile /> },
-      { path: '/c', element: <C /> },
+   
       { path: '/cpp', element: <Cpp /> },
       { path: '/java', element: <Java /> },
       { path: '/python', element: <Python /> },
