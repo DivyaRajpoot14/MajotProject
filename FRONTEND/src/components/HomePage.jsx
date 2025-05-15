@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <>
 
-    <div className="flex flex-row items-start bg-gradient-to-br from-blue-500 to-sky-600">
+    <div className="flex flex-row items-start bg-gradient-to-br from-blue-500 to-sky-600 ">
     <div className="min-h-screen w-[100dvw]  text-white flex flex-col items-center justify-center">
       <h1 className="text-5xl font-extrabold mb-4 ">Welcome to Test YourSelf !</h1>
       {/* <p className='text-lg mb-8'>"Welcome to a world of learning and discovery! Explore our exciting quizzes, test your knowledge, and have fun while you grow. Let's get started!"

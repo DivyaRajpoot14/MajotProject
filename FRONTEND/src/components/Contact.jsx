@@ -1,53 +1,141 @@
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Mail, Phone, MapPin } from "lucide-react";
 
-import { Formik,Form,Field } from "formik";
-const Contact=() => {
-   return(
-    <>
-  
-    <Formik>
- 
-    <div className="w-[100dvw] h-[100dvh] bg-gradient-to-br from-blue-500 to-sky-600 flex items-center justify-center">
-      <div className=" w-[50dvw] h-[65dvh] bg-white shadow-xl border-2 border-gray-100 m-5">
-          <Form>
-            <h1 className="text-blue-500 font-bold text-center text-2xl mt-2">Contact</h1>
-      <div className="h-20  mt-5 p-5">
-<div className="w-[95%] h-11 relative ">
-    <Field type="text" id="firstName"  name="firstName" className="block outline-none outline-zinc-400  px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border dark:focus:border-blue-500 focus:outline-blue-500  focus:outline focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-    <label htmlFor="firstName" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transfor m -translate-y-4 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"> Name</label>
-    
-</div>
-</div>
-<div className="h-20 p-5">
-<div className="w-[95%] h-11 relative">
-    <Field type="email" id="email" name="email" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-    <label htmlFor="email" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email Id</label>
-    
-</div>
-</div>
-<div className="h-20 p-5">
-<div className="w-[95%] h-11 relative">
-    <Field type="text" id="subject" name="subject" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-    <label htmlFor="subject" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Subject</label>
-    
-</div>
-</div>
-<div className="h-40 p-5">
-   <div className="w-[95%]  relative">
-        <Field as="textarea" type="text" id="message"  name="message" className="block h-32 outline-none outline-zinc-400  focus:outline-none focus:outline-blue-600 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500  focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-        <label htmlFor="message" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Message</label>
+const ContactPage = () => {
+  const [status, setStatus] = useState("");
+  const formRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    emailjs
+      .sendForm(
+        "service_b2f8a07",     
+        "template_jtbzkiv",
+        formRef.current,
+        "uUqwZy41a-_Ohidcc"     
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatus("success");
+          formRef.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          setStatus("error");
+        }
+      );
+  };
+
+  return (
+    <div className="bg-white text-gray-800 font-opensans mt-20">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-16 text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-poppins">Contact Us</h1>
+        <p className="text-lg max-w-xl mx-auto">
+          Have questions, feedback, or need support? We'd love to hear from you.
+        </p>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-12 px-6 md:px-20 bg-blue-50">
+        <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
+          <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 font-poppins mb-6">
+            Send a Message
+          </h2>
+          <form ref={formRef} onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
+            <div className="col-span-1">
+              <label className="block text-gray-700 mb-2 font-medium">Name</label>
+              <input
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="col-span-1">
+              <label className="block text-gray-700 mb-2 font-medium">Email</label>
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="col-span-2">
+              <label className="block text-gray-700 mb-2 font-medium">Subject</label>
+              <input
+                name="subject"
+                type="text"
+                placeholder="Subject"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="col-span-2">
+              <label className="block text-gray-700 mb-2 font-medium">Message</label>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Write your message..."
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+
+            <div className="col-span-2 text-center">
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+              >
+                {status === "loading" ? "Sending..." : "Send Message"}
+              </button>
+              {status === "success" && (
+                <p className="mt-4 text-green-600 font-medium">Message sent successfully!</p>
+              )}
+              {status === "error" && (
+                <p className="mt-4 text-red-600 font-medium">Failed to send message. Try again.</p>
+              )}
+            </div>
+          </form>
+        </div>
+      </section>
+
+
+{/* Modern Contact Info Section */}
+<section className="py-12 px-6 md:px-20 bg-white">
+  <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3">
+    <div className="flex flex-col items-center text-center bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition duration-300">
+      <Mail className="w-10 h-10 text-blue-600 mb-4" />
+      <h3 className="text-lg font-semibold text-gray-700">Email</h3>
+      <p className="text-gray-600 mt-1">divyapanwar142004@gmail.com</p>
     </div>
-   </div>
-<div className="h-16 w-[95%] flex justify-start p-5  ">
-<button type="submit" className="w-[100px] rounded-lg h-12  text-white bg-blue-600 hover:bg-primary-700 focus:ring-2 focus:outline-none focus:ring-primary-200 font-medium text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sent</button>
-</div> 
-</Form>
-      </div>
-
+    
+    <div className="flex flex-col items-center text-center bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition duration-300">
+      <Phone className="w-10 h-10 text-blue-600 mb-4" />
+      <h3 className="text-lg font-semibold text-gray-700">Phone</h3>
+      <p className="text-gray-600 mt-1">+916261965414</p>
     </div>
     
-    </Formik>
-    </>
-   )
+    <div className="flex flex-col items-center text-center bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition duration-300">
+      <MapPin className="w-10 h-10 text-blue-600 mb-4" />
+      <h3 className="text-lg font-semibold text-gray-700">Location</h3>
+      <p className="text-gray-600 mt-1">Khandwa</p>
+    </div>
+  </div>
+</section>
 
-}
-export default Contact;
+    </div>
+  );
+};
+
+export default ContactPage;

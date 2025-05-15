@@ -1,348 +1,215 @@
-// import { Formik,Field,Form } from "formik";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import * as yup from 'yup';
-// import { FaArrowRight } from "react-icons/fa";
-// import { FaRegEye } from "react-icons/fa";
-// import {FaRegEyeSlash} from "react-icons/fa";
 
-// const Signup=()=>{
-//     const navigate=useNavigate();
-//     const login=()=>{
-//         navigate('/loginform')
-//     }
-//     // const validationSchema = yup.object({
-//     //    FirstName:yup.string().required("Please Enter First Name").matches(/^([A-Zz-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/gi,'Name Can Only Contain Alphabets.'),
-//     //    LastName:yup.string().required("Please Enter Last Name").matches(/^([A-Zz-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/gi,'Name Can Only Contain Alphabets.'),
-//     //   Dob:yup.string().required("Please Enter Your DOB"),
-//     //    MobileNumber:yup.number() 
-//     //     .min(1000000000,"Not Valid Phone NUmber")
-//     //     .max(9999999999,"Not Valid Phone Number")
-//     //     .required(" Please Enter Mobile Number"),
-//     //     Email:yup.string().email('Invalid Email').required("Please Enter Email Id"),
-//     //     Password:yup.string().min(6,"Must be at least 6 characters").required(" Please Enter Password")
-//     //     .max(10),
-//     //     ConfirmPassword:yup.string().OneOf([Yup.ref('Password'),null],'Password must be match'),
-//     // })
-//     const[showpassword,setshowpassword]=useState(false);
-//     return(
-//         <div className="min-h-screen w-[100dvw] bg-gradient-to-br from-blue-500 to-sky-600 text-white flex flex-col items-center justify-center">
-//      <Formik 
-//      initialValues={{
-//         FirstName:"",
-//         LastName:"",
-//         MobileNumber:"",
-//         Email:"",
-//         Password:"",
-//     ConfirmPassword:"",
-//      }}
-//      onSubmit={async (values, { setSubmitting }) => {
-//         try {
-//           const fullName = values.FirstName + ' ' + values.LastName;
-//           const payload = {
-//             name: fullName,
-//             mobileNumber: values.MobileNumber,
-//             email: values.Email,
-//             password: values.Password,
-//             role: "user" // or dynamic role if applicable
-//           };
-      
-//           const response = await axios.post(" http://localhost:5173/User/register", payload);
-      
-//           if (response.data && response.data.message === "User Created Successfully") {
-//             alert("Successfully Registered!");
-//             navigate("/loginform");
-//           } else {
-//             alert("Something went wrong. Try again.");
-//           }
-//         } catch (error) {
-//           alert(error.response?.data?.message || "Server Error");
-//         } finally {
-//           setSubmitting(false);
-//         }
-//       }}
-//       >
-//         <Form>
-//         <div className="w-[35dvw] h-[70dvh] bg-white shadow-2xl p-5 rounded-lg">
-//         <h1 className="w-[100%] h-20 flex flex-col justify-center  items-center">
-//             <h1 className="text-xl text-center font-bold leading-tight tracking-tigh text-blue-600 md:text-3xl">Join Us!</h1>
-//               <h3 className="text-gray-500 font-medium ">Sign up Now To Became A Member</h3>
-//               </h1>
-//             <div className="w-[95%] flex justify-between ml-3">      
-//      <div className="h-20 w-2/4 ">
-//    <div className="w-full h-10 relative ">
-//         <Field type="text" id="FirstName"  name="FirstName" className="block outline-none outline-zinc-400  px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border dark:focus:border-blue-500 focus:outline-blue-500  focus:outline focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="FirstName" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">First Name</label>
-//     </div>
-//    </div>
-//    <div className="h-20 w-2/4 ml-6">
-//    <div className="w-full h-10 relative">
-//         <Field type="text" id="LastName"  name="LastName" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="LastName" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Last Name</label>
-//     </div>
-//    </div>
-//    </div>
-
-//    <div className="h-20 w-[95%] ml-3">
-//    <div className="w-full h-10 relative">
-//         <Field type="number" id="MobileNumber"  name="MobileNumber" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="MobileNumber" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Mobile Number</label>
-//     </div>
-//    </div>
-//    <div className="h-20 w-[95%]  ml-3">
-//    <div className="w-full h-10 relative">
-//         <Field type="email" id="Email" name="Email" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="Email" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email Id</label>
-        
-//     </div>
-//    </div>
-//    <div className="h-20 w-[95%]  ml-3">
-//    <div className="w-full h-10 relative">
-//         <Field type={showpassword?"text":"password"} id="Password"  name="Password" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="Password" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
-//         <button type="button" className=" text-black cursor-pointer absolute right-3 top-4" onClick={()=>setshowpassword(!showpassword)}>{showpassword ?(<FaRegEyeSlash />):(<FaRegEye />)}</button>
-       
-//     </div>
-//    </div>
-//    <div className="h-20 w-[95%] ml-3 ">
-//    <div className="w-full h-10 relative">
-//         <Field type="text"id="confirmPassword"  name="confirmPassword" className="block  outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal  text-gray-900 bg-transparent rounded-lg  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-blue-500 focus:ring-0 focus:border-blue-600 peer" placeholder="" />
-//         <label htmlFor="confirmPassword" className="absolute text-lg font-normal text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Confirm Password</label>
-//         <button type="button" className="cursor-pointer absolute right-3 top-4" ></button>
-       
-//     </div>
-//    </div>
-//    <div className=" w-[95%] ml-3">
-//    <button type="submit" className="w-full text-white  bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">SIGNUP</button>
-//    </div>
-//    <p className="text-sm font-light text-gray-500 flex justify-center m-2">
-//                       Already a member?<span onClick={login} className="font-medium text-primary-600 hover:underline cursor-pointer ">LogIn  here</span>
-//                       </p>
-//    </div>
-//    </Form>
-//    </Formik>
-//         </div>
-        
-        
-    
-//     )
-// }
-// export default Signup;
-import { Formik, Field, Form } from "formik";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import React, { useState } from "react";
 import axios from "axios";
-
-const Signup = () => {
+import { useNavigate } from "react-router-dom";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const SignupForm = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-
-  const login = () => {
-    navigate("/loginform");
-  };
-
-  const validationSchema = yup.object({
-    name: yup
-      .string()
-      .required("Please enter your name")
-      .matches(
-        /^([A-Za-z\s]*)$/,
-        "Name can only contain alphabets and spaces."
-      ),
-    mobileNumber: yup
-      .string()
-      .required("Please enter mobile number")
-      .matches(/^\d{10}$/, "Mobile number must be 10 digits"),
-    email: yup
-      .string()
-      .email("Invalid email address")
-      .required("Please enter email"),
-    password: yup
-      .string()
-      .min(6, "Password must be at least 6 characters")
-      .max(10, "Password cannot exceed 10 characters")
-      .required("Please enter password"),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "Passwords must match")
-      .required("Please confirm password"),
+  const [formData, setFormData] = useState({
+    name: "",
+    mobileNumber: "",
+    email: "",
+    password: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.mobileNumber.match(/^\d{10}$/))
+      newErrors.mobileNumber = "Enter a valid 10-digit mobile number";
+    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
+      newErrors.email = "Enter a valid email";
+    if (formData.password.length < 6 || formData.password.length > 10)
+      newErrors.password = "Password must be 6–10 characters";
+
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+    setServerError("");
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/User/register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      toast.success("Signup successful!");
+  
+      // Delay navigation by 3 seconds (3000 ms)
+      setTimeout(() => {
+        navigate("/loginform");
+      }, 3000);
+  
+    } catch (error) {
+      if (error.response) {
+        const message = error.response.data.message || "Server Error";
+        setServerError(message);
+        toast.error(message);
+      } else {
+        setServerError("Something went wrong. Please try again.");
+        toast.error("Something went wrong. Please try again.");
+      }
+    }
+  };
+  
+
   return (
+    <>
+
+
+  
     <div className="min-h-screen w-[100dvw] bg-gradient-to-br from-blue-500 to-sky-600 text-white flex flex-col items-center justify-center">
-      <Formik
-        initialValues={{
-          name: "",
-          mobileNumber: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={async (values, { setSubmitting }) => {
-          try {
-            const payload = {
-              name: values.name,
-              mobileNumber: values.mobileNumber,
-              email: values.email,
-              password: values.password,
-              role: "user",
-            };
+    <ToastContainer position="top-right" autoClose={2000}  />
 
-            const response = await axios.post(
-              "http://localhost:5173/User/register",
-              payload
-            );
-
-            if (
-              response.data &&
-              response.data.message === "User Created Successfully"
-            ) {
-              alert("Successfully Registered!");
-              navigate("/loginform");
-            } else {
-              alert("Something went wrong. Try again.");
-            }
-          } catch (error) {
-            alert(error.response?.data?.message || "Server Error");
-          } finally {
-            setSubmitting(false);
-          }
-        }}
+      <form
+        onSubmit={handleSubmit}
+        className="w-[35dvw] h-auto bg-white shadow-2xl p-5 rounded-lg"
       >
-        <Form>
-          <div className="w-[35dvw] h-[70dvh] bg-white shadow-2xl p-5 rounded-lg">
-            <h1 className="w-full h-20 flex flex-col justify-center items-center">
-              <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-blue-600 md:text-3xl">
-                Join Us!
-              </h1>
-              <h3 className="text-gray-500 font-medium">
-                Sign up Now To Become A Member
-              </h3>
-            </h1>
+        <div className="w-full text-center mb-6">
+          <h1 className="text-xl font-bold text-blue-600 md:text-3xl">Join Us!</h1>
+          <h3 className="text-gray-500 font-medium">Sign up Now To Become A Member</h3>
+        </div>
 
-            <div className="h-20 w-[95%] ml-3">
-              <div className="w-full h-10 relative">
-                <Field
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal text-gray-900 bg-transparent rounded-lg appearance-none peer"
-                  placeholder=""
-                />
-                <label
-                  htmlFor="name"
-                  className="absolute text-lg font-normal text-gray-500 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
-                >
-                  Full Name
-                </label>
-              </div>
-            </div>
-
-            <div className="h-20 w-[95%] ml-3">
-              <div className="w-full h-10 relative">
-                <Field
-                  type="text"
-                  id="mobileNumber"
-                  name="mobileNumber"
-                  className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal text-gray-900 bg-transparent rounded-lg appearance-none peer"
-                  placeholder=""
-                />
-                <label
-                  htmlFor="mobileNumber"
-                  className="absolute text-lg font-normal text-gray-500 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
-                >
-                  Mobile Number
-                </label>
-              </div>
-            </div>
-
-            <div className="h-20 w-[95%] ml-3">
-              <div className="w-full h-10 relative">
-                <Field
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal text-gray-900 bg-transparent rounded-lg appearance-none peer"
-                  placeholder=""
-                />
-                <label
-                  htmlFor="email"
-                  className="absolute text-lg font-normal text-gray-500 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
-                >
-                  Email Id
-                </label>
-              </div>
-            </div>
-
-            <div className="h-20 w-[95%] ml-3">
-              <div className="w-full h-10 relative">
-                <Field
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal text-gray-900 bg-transparent rounded-lg appearance-none peer"
-                  placeholder=""
-                />
-                <label
-                  htmlFor="password"
-                  className="absolute text-lg font-normal text-gray-500 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
-                >
-                  Password
-                </label>
-                <button
-                  type="button"
-                  className="text-black cursor-pointer absolute right-3 top-4"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-                </button>
-              </div>
-            </div>
-
-            <div className="h-20 w-[95%] ml-3">
-              <div className="w-full h-10 relative">
-                <Field
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base font-normal text-gray-900 bg-transparent rounded-lg appearance-none peer"
-                  placeholder=""
-                />
-                <label
-                  htmlFor="confirmPassword"
-                  className="absolute text-lg font-normal text-gray-500 duration-300 transform -translate-y-5 scale-75 top-2 z-10 origin-[1] bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
-                >
-                  Confirm Password
-                </label>
-              </div>
-            </div>
-
-            <div className="w-[95%] ml-3">
-              <button
-                type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-              >
-                SIGNUP
-              </button>
-            </div>
-
-            <p className="text-sm font-light text-gray-500 flex justify-center m-2">
-              Already a member?
-              <span
-                onClick={login}
-                className="font-medium text-primary-600 hover:underline cursor-pointer ml-1"
-              >
-                LogIn here
-              </span>
-            </p>
+        <div className="w-[95%] ml-3 mb-4">
+          <div className="relative">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg appearance-none peer"
+              placeholder=""
+            />
+            <label
+              htmlFor="name"
+              className="absolute text-lg text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+            >
+              Full Name
+            </label>
+            {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
           </div>
-        </Form>
-      </Formik>
+        </div>
+
+        <div className="w-[95%] ml-3 mb-4">
+          <div className="relative">
+            <input
+              type="text"
+              name="mobileNumber"
+              id="mobileNumber"
+              value={formData.mobileNumber}
+              onChange={handleChange}
+              className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg appearance-none peer"
+              placeholder=""
+            />
+            <label
+              htmlFor="mobileNumber"
+              className="absolute text-lg text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+            >
+              Mobile Number
+            </label>
+            {errors.mobileNumber && (
+              <p className="text-sm text-red-500 mt-1">{errors.mobileNumber}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="w-[95%] ml-3 mb-4">
+          <div className="relative">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg appearance-none peer"
+              placeholder=""
+            />
+            <label
+              htmlFor="email"
+              className="absolute text-lg text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+            >
+              Email Id
+            </label>
+            {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
+          </div>
+        </div>
+
+        <div className="w-[95%] ml-3 mb-6">
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="block outline-none outline-zinc-400 px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg appearance-none peer"
+              placeholder=""
+            />
+            <label
+              htmlFor="password"
+              className="absolute text-lg text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 bg-white px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+            >
+              Password
+            </label>
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-4 text-black"
+            >
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </button>
+            {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
+          </div>
+        </div>
+
+        {serverError && <p className="text-red-500 text-center mb-2">{serverError}</p>}
+
+        <div className="w-[95%] ml-3">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition"
+          >
+            SIGNUP
+          </button>
+        </div>
+
+        <p className="text-sm text-gray-500 text-center mt-4">
+          Already a member?{" "}
+          <span
+            className="text-blue-600 font-medium cursor-pointer hover:underline"
+            onClick={() => navigate("/loginform")}
+          >
+            LogIn here
+          </span>
+        </p>
+      </form>
     </div>
+    </>
   );
 };
 
-export default Signup;
+export default SignupForm;

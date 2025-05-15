@@ -5,187 +5,110 @@ import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
 
-const Iot=()=>{
+const Cloud=()=>{
     const questions = [
-      
-          {
-            "question": "What does IoT stand for?",
-            "options": [
-              "Internet of Technology",
-              "Integration of Things",
-              "Internet of Things",
-              "Interconnection of Technology"
-            ],
-            "correctAnswer": "Internet of Things"
-          },
-          {
-            "question": "Which of the following is a key characteristic of IoT?",
-            "options": [
-              "Automation and Control",
-              "Data Collection",
-              "Interconnected Devices",
-              "All of the above"
-            ],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "Which protocol is commonly used for IoT devices?",
-            "options": ["HTTP", "MQTT", "FTP", "SMTP"],
-            "correctAnswer": "MQTT"
-          },
-          {
-            "question": "Which of the following is an example of an IoT device?",
-            "options": [
-              "Smart thermostat",
-              "Laptop",
-              "Smartphone",
-              "Desktop computer"
-            ],
-            "correctAnswer": "Smart thermostat"
-          },
-          {
-            "question": "What is the purpose of a sensor in IoT?",
-            "options": [
-              "To store data",
-              "To transmit data",
-              "To collect data",
-              "To process data"
-            ],
-            "correctAnswer": "To collect data"
-          },
-          {
-            "question": "Which layer is responsible for data transmission in IoT architecture?",
-            "options": [
-              "Application layer",
-              "Perception layer",
-              "Network layer",
-              "Data processing layer"
-            ],
-            "correctAnswer": "Network layer"
-          },
-          {
-            "question": "Which of the following is an IoT communication protocol?",
-            "options": ["Bluetooth", "Wi-Fi", "ZigBee", "All of the above"],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "What is the role of actuators in IoT?",
-            "options": [
-              "To collect data",
-              "To perform actions",
-              "To store data",
-              "To analyze data"
-            ],
-            "correctAnswer": "To perform actions"
-          },
-          {
-            "question": "Which of the following is a challenge in IoT?",
-            "options": [
-              "Security concerns",
-              "Data privacy",
-              "Interoperability",
-              "All of the above"
-            ],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "What is the full form of RFID in IoT?",
-            "options": [
-              "Radio Frequency Identification",
-              "Remote Frequency Interaction Device",
-              "Radio Frequency Internet Device",
-              "Real-time Frequency Identification"
-            ],
-            "correctAnswer": "Radio Frequency Identification"
-          },
-          {
-            "question": "Which cloud service is widely used for IoT applications?",
-            "options": ["AWS IoT", "Azure IoT Hub", "Google Cloud IoT", "All of the above"],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "What is the primary use of IoT in healthcare?",
-            "options": [
-              "Smart homes",
-              "Wearable health monitors",
-              "Self-driving cars",
-              "Online shopping"
-            ],
-            "correctAnswer": "Wearable health monitors"
-          },
-          {
-            "question": "Which of the following is a common IoT device in agriculture?",
-            "options": [
-              "Smart irrigation systems",
-              "Wearable fitness trackers",
-              "Video game consoles",
-              "Streaming devices"
-            ],
-            "correctAnswer": "Smart irrigation systems"
-          },
-          {
-            "question": "Which IoT layer is responsible for interacting with users?",
-            "options": [
-              "Perception layer",
-              "Network layer",
-              "Application layer",
-              "Transport layer"
-            ],
-            "correctAnswer": "Application layer"
-          },
-          {
-            "question": "Which of the following is a popular IoT platform?",
-            "options": ["Arduino", "Raspberry Pi", "AWS IoT", "All of the above"],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "Which programming language is commonly used in IoT development?",
-            "options": ["Python", "C", "JavaScript", "All of the above"],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "What does M2M stand for in the context of IoT?",
-            "options": [
-              "Machine to Machine",
-              "Mobile to Mobile",
-              "Module to Module",
-              "Monitor to Monitor"
-            ],
-            "correctAnswer": "Machine to Machine"
-          },
-          {
-            "question": "What is the primary goal of IoT?",
-            "options": [
-              "To interconnect devices",
-              "To replace the internet",
-              "To reduce network usage",
-              "To develop gaming applications"
-            ],
-            "correctAnswer": "To interconnect devices"
-          },
-          {
-            "question": "Which of the following IoT applications is related to smart cities?",
-            "options": [
-              "Traffic monitoring",
-              "Waste management",
-              "Smart lighting",
-              "All of the above"
-            ],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "Which of the following best describes edge computing in IoT?",
-            "options": [
-              "Computing at the cloud server",
-              "Processing data at the device or near the data source",
-              "Storing data in a central location",
-              "Transmitting data to external servers"
-            ],
-            "correctAnswer": "Processing data at the device or near the data source"
-          }
-       
-      
+        {
+          question: "What is cloud computing?",
+          options: ["Using local servers", "Storing files on CDs", "Using remote servers via internet", "Browsing websites"],
+          correctAnswer: "Using remote servers via internet"
+        },
+        {
+          question: "Which of the following is a cloud computing platform?",
+          options: ["AWS", "Oracle", "MySQL", "Java"],
+          correctAnswer: "AWS"
+        },
+        {
+          question: "Which model offers software over the Internet?",
+          options: ["IaaS", "PaaS", "SaaS", "NaaS"],
+          correctAnswer: "SaaS"
+        },
+        {
+          question: "What does IaaS stand for?",
+          options: ["Information as a Service", "Infrastructure as a Service", "Internet as a Server", "Integration as a Solution"],
+          correctAnswer: "Infrastructure as a Service"
+        },
+        {
+          question: "Which company offers Azure cloud services?",
+          options: ["Google", "Amazon", "IBM", "Microsoft"],
+          correctAnswer: "Microsoft"
+        },
+        {
+          question: "Which service provides virtual machines?",
+          options: ["SaaS", "IaaS", "PaaS", "TaaS"],
+          correctAnswer: "IaaS"
+        },
+        {
+          question: "What is the purpose of load balancing in cloud?",
+          options: ["Increase CPU speed", "Distribute traffic", "Enhance GUI", "Reduce storage"],
+          correctAnswer: "Distribute traffic"
+        },
+        {
+          question: "Which is not a cloud deployment model?",
+          options: ["Public", "Private", "Hybrid", "Fixed"],
+          correctAnswer: "Fixed"
+        },
+        {
+          question: "What does scalability mean in cloud?",
+          options: ["Fixed resources", "Ability to increase/decrease resources", "Backup data", "Creating tables"],
+          correctAnswer: "Ability to increase/decrease resources"
+        },
+        {
+          question: "What is the benefit of multi-tenancy?",
+          options: ["One user per software", "Dedicated resources", "Resource sharing among users", "No security"],
+          correctAnswer: "Resource sharing among users"
+        },
+        {
+          question: "Which of the following is NOT a cloud provider?",
+          options: ["Google Cloud", "AWS", "Azure", "Android"],
+          correctAnswer: "Android"
+        },
+        {
+          question: "What is the role of a hypervisor?",
+          options: ["Manage databases", "Create firewalls", "Run virtual machines", "Generate reports"],
+          correctAnswer: "Run virtual machines"
+        },
+        {
+          question: "Which cloud model provides developers with tools and environments?",
+          options: ["IaaS", "SaaS", "PaaS", "FaaS"],
+          correctAnswer: "PaaS"
+        },
+        {
+          question: "Which database is commonly used in cloud?",
+          options: ["MySQL", "MongoDB", "DynamoDB", "All of the above"],
+          correctAnswer: "All of the above"
+        },
+        {
+          question: "Which cloud storage is provided by Google?",
+          options: ["OneDrive", "Dropbox", "Google Drive", "iCloud"],
+          correctAnswer: "Google Drive"
+        },
+        {
+          question: "What does elasticity in cloud mean?",
+          options: ["High cost", "Performance optimization", "Rapid resource scaling", "Data loss"],
+          correctAnswer: "Rapid resource scaling"
+        },
+        {
+          question: "Which AWS service is used for computing?",
+          options: ["S3", "Lambda", "EC2", "RDS"],
+          correctAnswer: "EC2"
+        },
+        {
+          question: "Which term describes paying only for used resources?",
+          options: ["Flat billing", "Subscription", "Pay-as-you-go", "Prepaid"],
+          correctAnswer: "Pay-as-you-go"
+        },
+        {
+          question: "Which term refers to cloud failure handling?",
+          options: ["Data loss", "Fault tolerance", "Elasticity", "Optimization"],
+          correctAnswer: "Fault tolerance"
+        },
+        {
+          question: "What is the role of CDN in cloud?",
+          options: ["Compress files", "Deliver content faster", "Create firewalls", "Backup storage"],
+          correctAnswer: "Deliver content faster"
+        }
       ];
+      
     
 
       
@@ -394,4 +317,4 @@ const Iot=()=>{
                   
                   
     
-  export default  Iot;
+  export default  Cloud;

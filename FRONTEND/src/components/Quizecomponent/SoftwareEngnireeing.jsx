@@ -1,143 +1,116 @@
-  
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
-const Ds=()=>{
-    const questions = [
-      
-          {
-            "question": "Which data structure uses LIFO (Last In First Out) principle?",
-            "options": ["Queue", "Stack", "Array", "Linked List"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the time complexity of accessing an element in an array by its index?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(1)"
-          },
-          {
-            "question": "Which data structure uses FIFO (First In First Out) principle?",
-            "options": ["Queue", "Stack", "Tree", "Graph"],
-            "correctAnswer": "Queue"
-          },
-          {
-            "question": "What is the worst-case time complexity of searching an element in a binary search tree?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
-            "correctAnswer": "O(n)"
-          },
-          {
-            "question": "Which of the following is not a linear data structure?",
-            "options": ["Array", "Queue", "Graph", "Stack"],
-            "correctAnswer": "Graph"
-          },
-          {
-            "question": "What is the maximum number of children a node can have in a binary tree?",
-            "options": ["1", "2", "3", "Unlimited"],
-            "correctAnswer": "2"
-          },
-          {
-            "question": "Which data structure is used to implement recursion?",
-            "options": ["Queue", "Stack", "Array", "Heap"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the time complexity of inserting an element into a max heap?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(log n)"
-          },
-          {
-            "question": "Which traversal method is used to retrieve data in sorted order from a binary search tree?",
-            "options": ["Pre-order", "In-order", "Post-order", "Level-order"],
-            "correctAnswer": "In-order"
-          },
-          {
-            "question": "What is the space complexity of a breadth-first search (BFS) in a graph?",
-            "options": ["O(1)", "O(V)", "O(E)", "O(V + E)"],
-            "correctAnswer": "O(V)"
-          },
-          {
-            "question": "Which data structure is best suited for implementing a priority queue?",
-            "options": ["Array", "Stack", "Heap", "Linked List"],
-            "correctAnswer": "Heap"
-          },
-          {
-            "question": "What is a circular queue?",
-            "options": [
-              "A queue that uses pointers",
-              "A queue where the last position is connected to the first",
-              "A queue with only one element",
-              "A queue that uses a stack internally"
-            ],
-            "correctAnswer": "A queue where the last position is connected to the first"
-          },
-          {
-            "question": "Which operation is not possible in a singly linked list?",
-            "options": [
-              "Insertion at the head",
-              "Deletion from the tail",
-              "Traversal in both directions",
-              "Search for an element"
-            ],
-            "correctAnswer": "Traversal in both directions"
-          },
-          {
-            "question": "What is a complete binary tree?",
-            "options": [
-              "A tree where all levels are completely filled",
-              "A tree where all nodes have two children",
-              "A tree where all leaves are at the same level",
-              "A tree where all nodes have a parent"
-            ],
-            "correctAnswer": "A tree where all levels are completely filled"
-          },
-          {
-            "question": "What is the worst-case time complexity of merge sort?",
-            "options": ["O(n)", "O(log n)", "O(n log n)", "O(n^2)"],
-            "correctAnswer": "O(n log n)"
-          },
-          {
-            "question": "Which of the following data structures is used in depth-first search (DFS)?",
-            "options": ["Queue", "Stack", "Heap", "Priority Queue"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the main advantage of a doubly linked list over a singly linked list?",
-            "options": [
-              "Uses less memory",
-              "Easier to reverse",
-              "Faster traversal",
-              "Simpler implementation"
-            ],
-            "correctAnswer": "Easier to reverse"
-          },
-          {
-            "question": "What is the time complexity of deleting the maximum element from a max heap?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(log n)"
-          },
-          {
-            "question": "Which of the following algorithms is used to find the shortest path in a graph?",
-            "options": [
-              "Depth-first search",
-              "Kruskal’s algorithm",
-              "Dijkstra’s algorithm",
-              "Prim’s algorithm"
-            ],
-            "correctAnswer": "Dijkstra’s algorithm"
-          },
-          {
-            "question": "Which data structure is most suitable for evaluating arithmetic expressions?",
-            "options": ["Queue", "Stack", "Array", "Linked List"],
-            "correctAnswer": "Stack"
-          }
-      
-      ];
-    
 
-
+const Se= () => {
+  const navigate = useNavigate();
+              const questions  = [
+                {
+                  question: "Which model is also known as the classic life cycle model?",
+                  options: ["Waterfall Model", "Spiral Model", "Incremental Model", "Agile Model"],
+                  correctAnswer: "Waterfall Model"
+                },
+                {
+                  question: "Which of the following is not a software development life cycle (SDLC) phase?",
+                  options: ["Requirement Analysis", "Testing", "Design", "Execution"],
+                  correctAnswer: "Execution"
+                },
+                {
+                  question: "In software engineering, SRS stands for:",
+                  options: ["Software Requirement Specification", "System Resource Specification", "Software Reliability Standard", "Structured Requirement Strategy"],
+                  correctAnswer: "Software Requirement Specification"
+                },
+                {
+                  question: "Which of the following is an example of a CASE tool?",
+                  options: ["Eclipse", "Notepad++", "Microsoft Word", "Rational Rose"],
+                  correctAnswer: "Rational Rose"
+                },
+                {
+                  question: "What is the main aim of software engineering?",
+                  options: ["Speed", "Efficiency", "Low cost", "Quality software within budget and time"],
+                  correctAnswer: "Quality software within budget and time"
+                },
+                {
+                  question: "Which of these models is based on risk assessment?",
+                  options: ["Waterfall", "V-Model", "Spiral", "Incremental"],
+                  correctAnswer: "Spiral"
+                },
+                {
+                  question: "In the Waterfall model, which phase comes immediately after requirements analysis?",
+                  options: ["Design", "Coding", "Testing", "Maintenance"],
+                  correctAnswer: "Design"
+                },
+                {
+                  question: "Which software testing type is performed without executing the program?",
+                  options: ["Dynamic Testing", "Unit Testing", "Static Testing", "Regression Testing"],
+                  correctAnswer: "Static Testing"
+                },
+                {
+                  question: "Agile methodology emphasizes:",
+                  options: ["Big design up front", "Working software", "Comprehensive documentation", "Following a plan strictly"],
+                  correctAnswer: "Working software"
+                },
+                {
+                  question: "Which metric measures the number of defects found per KLOC?",
+                  options: ["Cyclomatic Complexity", "Defect Density", "Coupling", "Cohesion"],
+                  correctAnswer: "Defect Density"
+                },
+                {
+                  question: "Black-box testing focuses on:",
+                  options: ["Internal code structure", "Memory usage", "Expected outputs from inputs", "CPU utilization"],
+                  correctAnswer: "Expected outputs from inputs"
+                },
+                {
+                  question: "Which of the following is not an Agile framework?",
+                  options: ["Scrum", "Kanban", "XP", "V-Model"],
+                  correctAnswer: "V-Model"
+                },
+                {
+                  question: "Which of the following helps in tracking the progress of a software project?",
+                  options: ["PERT Chart", "E-R Diagram", "Data Flow Diagram", "Nassi–Shneiderman Diagram"],
+                  correctAnswer: "PERT Chart"
+                },
+                {
+                  question: "Which software process model emphasizes iteration?",
+                  options: ["Waterfall", "Agile", "V-Model", "Big Bang"],
+                  correctAnswer: "Agile"
+                },
+                {
+                  question: "A function that calls itself is called:",
+                  options: ["Loop", "Recursion", "Iteration", "Callback"],
+                  correctAnswer: "Recursion"
+                },
+                {
+                  question: "Which of the following is a software quality model?",
+                  options: ["ISO 9001", "CMMI", "Six Sigma", "PDCA"],
+                  correctAnswer: "CMMI"
+                },
+                {
+                  question: "What does MVC stand for in software architecture?",
+                  options: ["Model View Controller", "Method Value Code", "Main Virtual Core", "Machine View Code"],
+                  correctAnswer: "Model View Controller"
+                },
+                {
+                  question: "Coupling in software design refers to:",
+                  options: ["Interdependence between modules", "Readability of code", "Reusability of code", "Internal structure of a module"],
+                  correctAnswer: "Interdependence between modules"
+                },
+                {
+                  question: "Which one is not a software testing level?",
+                  options: ["Unit Testing", "Integration Testing", "System Testing", "Programming Testing"],
+                  correctAnswer: "Programming Testing"
+                },
+                {
+                  question: "What is the last phase of the software development life cycle?",
+                  options: ["Design", "Deployment", "Maintenance", "Testing"],
+                  correctAnswer: "Maintenance"
+                }
+              ];
+              
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
@@ -341,4 +314,4 @@ const Ds=()=>{
   );
 };
 
-export default Ds;
+export default Se;

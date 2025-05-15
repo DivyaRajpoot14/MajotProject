@@ -1,205 +1,63 @@
-import React, { useState, useEffect } from "react";
+
+  import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
 
-const Css=()=>{
+const Android=()=>{
     const questions = [
-      
-          {
-            "question": "What does CSS stand for?",
-            "options": [
-              "Computer Style Sheets",
-              "Cascading Style Sheets",
-              "Creative Style Sheets",
-              "Colorful Style Sheets"
-            ],
-            "correctAnswer": "Cascading Style Sheets"
-          },
-          {
-            "question": "Which HTML tag is used to link a CSS file to an HTML document?",
-            "options": [
-              "<link>",
-              "<style>",
-              "<css>",
-              "<script>"
-            ],
-            "correctAnswer": "<link>"
-          },
-          {
-            "question": "Which CSS property is used to change the text color?",
-            "options": [
-              "font-color",
-              "text-color",
-              "color",
-              "background-color"
-            ],
-            "correctAnswer": "color"
-          },
-          {
-            "question": "Which property is used to change the background color of an element?",
-            "options": [
-              "background-color",
-              "bgcolor",
-              "color",
-              "background"
-            ],
-            "correctAnswer": "background-color"
-          },
-          {
-            "question": "Which of the following CSS selectors selects all <p> elements inside a <div>?",
-            "options": [
-              "div p",
-              "div > p",
-              "div + p",
-              "p div"
-            ],
-            "correctAnswer": "div p"
-          },
-          {
-            "question": "What is the default value of the position property in CSS?",
-            "options": [
-              "relative",
-              "absolute",
-              "static",
-              "fixed"
-            ],
-            "correctAnswer": "static"
-          },
-          {
-            "question": "Which CSS property is used to control the font size of text?",
-            "options": [
-              "font-style",
-              "font-size",
-              "text-style",
-              "font-weight"
-            ],
-            "correctAnswer": "font-size"
-          },
-          {
-            "question": "How can you add a comment in a CSS file?",
-            "options": [
-              "// This is a comment",
-              "/* This is a comment */",
-              "<!-- This is a comment -->",
-              "# This is a comment"
-            ],
-            "correctAnswer": "/* This is a comment */"
-          },
-          {
-            "question": "Which of the following CSS properties controls the spacing between lines of text?",
-            "options": [
-              "line-spacing",
-              "line-height",
-              "text-spacing",
-              "letter-spacing"
-            ],
-            "correctAnswer": "line-height"
-          },
-          {
-            "question": "Which property is used to set the spacing between characters in CSS?",
-            "options": [
-              "letter-spacing",
-              "word-spacing",
-              "text-spacing",
-              "line-spacing"
-            ],
-            "correctAnswer": "letter-spacing"
-          },
-          {
-            "question": "Which property is used to add space around elements in CSS?",
-            "options": [
-              "padding",
-              "margin",
-              "spacing",
-              "border"
-            ],
-            "correctAnswer": "margin"
-          },
-          {
-            "question": "Which CSS property is used to change the font family of text?",
-            "options": [
-              "font-style",
-              "font-family",
-              "font-type",
-              "text-font"
-            ],
-            "correctAnswer": "font-family"
-          },
-          {
-            "question": "What is the correct CSS syntax to select an element with the class 'example'?",
-            "options": [
-              ".example {}",
-              "#example {}",
-              "example {}",
-              "class.example {}"
-            ],
-            "correctAnswer": ".example {}"
-          },
-          {
-            "question": "What does the CSS 'z-index' property do?",
-            "options": [
-              "Sets the stacking order of elements",
-              "Sets the transparency of an element",
-              "Sets the color of an element",
-              "Sets the font size of an element"
-            ],
-            "correctAnswer": "Sets the stacking order of elements"
-          },
-          {
-            "question": "Which of the following values can the 'display' property have in CSS?",
-            "options": [
-              "block",
-              "inline",
-              "none",
-              "All of the above"
-            ],
-            "correctAnswer": "All of the above"
-          },
-          {
-            "question": "Which CSS property is used to make text bold?",
-            "options": [
-              "font-weight",
-              "font-style",
-              "text-weight",
-              "font-size"
-            ],
-            "correctAnswer": "font-weight"
-          },
-          {
-            "question": "What does the 'float' property do in CSS?",
-            "options": [
-              "Positions an element to the left or right of its container",
-              "Makes an element invisible",
-              "Sets the opacity of an element",
-              "Aligns text in the center"
-            ],
-            "correctAnswer": "Positions an element to the left or right of its container"
-          },
-          {
-            "question": "How do you make a link open in a new tab using CSS?",
-            "options": [
-              "Use target='_blank' in the <a> tag",
-              "Use target='new' in the <a> tag",
-              "Use position: relative;",
-              "Use display: block;"
-            ],
-            "correctAnswer": "Use target='_blank' in the <a> tag"
-          },
-          {
-            "question": "Which property is used to control the visibility of an element?",
-            "options": [
-              "visibility",
-              "display",
-              "opacity",
-              "none"
-            ],
-            "correctAnswer": "visibility"
-          }
-       
-      
+        {
+          question: "Which language is primarily used for Android development?",
+          options: ["Java", "Python", "Swift", "C#"],
+          correctAnswer: "Java"
+        },
+        {
+          question: "What is Android Studio?",
+          options: ["A game engine", "An IDE for Android development", "A browser", "A database"],
+          correctAnswer: "An IDE for Android development"
+        },
+        {
+          question: "Which file is the entry point of an Android app?",
+          options: ["MainActivity.java", "index.html", "Main.cs", "style.xml"],
+          correctAnswer: "MainActivity.java"
+        },
+        {
+          question: "What does APK stand for?",
+          options: ["Android Package", "Android Program Kit", "App Package Kernel", "Application Protocol Key"],
+          correctAnswer: "Android Package"
+        },
+        {
+          question: "What is the use of the manifest file in Android?",
+          options: ["Storing images", "Declaring app components", "Running scripts", "Loading fonts"],
+          correctAnswer: "Declaring app components"
+        },
+        {
+          question: "Which method is called when an Activity is started?",
+          options: ["onCreate()", "onStart()", "onResume()", "onRun()"],
+          correctAnswer: "onCreate()"
+        },
+        {
+          question: "What is an Intent in Android?",
+          options: ["A user action", "An app permission", "A message to components", "A button click"],
+          correctAnswer: "A message to components"
+        },
+        {
+          question: "Which layout is used to arrange views linearly?",
+          options: ["LinearLayout", "RelativeLayout", "GridLayout", "FrameLayout"],
+          correctAnswer: "LinearLayout"
+        },
+        {
+          question: "Which database is used in Android?",
+          options: ["MySQL", "PostgreSQL", "SQLite", "Oracle"],
+          correctAnswer: "SQLite"
+        },
+        {
+          question: "Which XML file contains the UI design?",
+          options: ["activity_main.xml", "style.xml", "manifest.xml", "config.xml"],
+          correctAnswer: "activity_main.xml"
+        }
       ];
     
       
@@ -409,4 +267,4 @@ const Css=()=>{
             
             
   
-  export default  Css;
+  export default  Android;

@@ -8,7 +8,7 @@ function Layout() {
       <header>
         <NavBar/>
       </header>
-      <main>
+      <main >
         <Outlet /> {/* This will render the routed components */}
       </main>
       {/* <footer>

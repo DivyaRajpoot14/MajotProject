@@ -4,202 +4,112 @@ import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
-const  Reactjs=()=>{
+const  Os=()=>{
     const questions = [
+ 
+            {
+              question: "Which of the following is not a function of the operating system?",
+              options: ["Memory Management", "Virus Scanning", "File Management", "Process Management"],
+              correctAnswer: "Virus Scanning"
+            },
+            {
+              question: "Which of these is a type of real-time operating system?",
+              options: ["Windows 10", "Linux", "VxWorks", "macOS"],
+              correctAnswer: "VxWorks"
+            },
+            {
+              question: "The kernel is:",
+              options: ["The part of OS that interfaces with the user", "A programming language", "The core part of the OS", "The shell of the OS"],
+              correctAnswer: "The core part of the OS"
+            },
+            {
+              question: "Which scheduling algorithm gives the minimum average waiting time?",
+              options: ["FCFS", "SJF", "Round Robin", "Priority Scheduling"],
+              correctAnswer: "SJF"
+            },
+            {
+              question: "Which of the following is a non-preemptive scheduling algorithm?",
+              options: ["Round Robin", "SJF (Shortest Job First)", "Priority Scheduling", "Multilevel Queue"],
+              correctAnswer: "SJF (Shortest Job First)"
+            },
+            {
+              question: "Which of the following is not a type of OS?",
+              options: ["Batch", "Time-sharing", "Multiprocessing", "C++"],
+              correctAnswer: "C++"
+            },
+            {
+              question: "A process is:",
+              options: ["A program in execution", "A part of the compiler", "A system call", "A hardware component"],
+              correctAnswer: "A program in execution"
+            },
+            {
+              question: "Thrashing is:",
+              options: ["A high CPU usage", "A condition where the system spends most of its time swapping", "A high memory usage", "A process waiting for I/O"],
+              correctAnswer: "A condition where the system spends most of its time swapping"
+            },
+            {
+              question: "Which system call is used to create a new process in UNIX?",
+              options: ["create()", "fork()", "exec()", "init()"],
+              correctAnswer: "fork()"
+            },
+            {
+              question: "Which of these is not a page replacement algorithm?",
+              options: ["LRU", "FIFO", "Optimal", "DFS"],
+              correctAnswer: "DFS"
+            },
+            {
+              question: "Which memory management technique suffers from external fragmentation?",
+              options: ["Paging", "Segmentation", "Demand Paging", "None of the above"],
+              correctAnswer: "Segmentation"
+            },
+            {
+              question: "What is the use of a semaphore?",
+              options: ["To execute I/O operations", "To manage file systems", "To handle deadlocks", "For process synchronization"],
+              correctAnswer: "For process synchronization"
+            },
+            {
+              question: "Deadlock occurs when:",
+              options: ["Processes run without waiting", "Each process is waiting for a resource held by another", "CPU is underutilized", "All processes are in ready state"],
+              correctAnswer: "Each process is waiting for a resource held by another"
+            },
+            {
+              question: "Which of the following is a condition for deadlock?",
+              options: ["Preemption", "Mutual Exclusion", "Spooling", "Demand Paging"],
+              correctAnswer: "Mutual Exclusion"
+            },
+            {
+              question: "Which of the following is responsible for loading the OS into memory?",
+              options: ["Compiler", "Loader", "Linker", "Bootloader"],
+              correctAnswer: "Bootloader"
+            },
+            {
+              question: "Virtual memory is:",
+              options: ["Memory on the processor", "Part of the hard disk used as RAM", "Only present in real-time systems", "Unused RAM"],
+              correctAnswer: "Part of the hard disk used as RAM"
+            },
+            {
+              question: "Which of the following is a disk scheduling algorithm?",
+              options: ["FCFS", "SSTF", "Round Robin", "SJF"],
+              correctAnswer: "SSTF"
+            },
+            {
+              question: "What is a system call?",
+              options: ["Call to the OS kernel by a user program", "Call to the BIOS", "A hardware interrupt", "A call from OS to user program"],
+              correctAnswer: "Call to the OS kernel by a user program"
+            },
+            {
+              question: "Which scheduling algorithm is used in time-sharing systems?",
+              options: ["FCFS", "Round Robin", "SJF", "Priority Scheduling"],
+              correctAnswer: "Round Robin"
+            },
+            {
+              question: "Which OS runs on smartphones?",
+              options: ["Android", "DOS", "Windows XP", "Ubuntu Server"],
+              correctAnswer: "Android"
+            }
+          ];
+               
       
-              {
-                "question": "What is React?",
-                "options": [
-                  "A JavaScript library for building user interfaces",
-                  "A JavaScript framework for building applications",
-                  "A CSS framework for building layouts",
-                  "A web server technology"
-                ],
-                "correctAnswer": "A JavaScript library for building user interfaces"
-              },
-              {
-                "question": "Which method is used to render a React element to the DOM?",
-                "options": [
-                  "ReactDOM.render()",
-                  "React.render()",
-                  "renderElement()",
-                  "DOM.render()"
-                ],
-                "correctAnswer": "ReactDOM.render()"
-              },
-              {
-                "question": "What is JSX?",
-                "options": [
-                  "A JavaScript syntax extension that allows writing HTML inside JavaScript",
-                  "A JavaScript framework for building components",
-                  "A method of styling HTML elements",
-                  "A tool for building backend services"
-                ],
-                "correctAnswer": "A JavaScript syntax extension that allows writing HTML inside JavaScript"
-              },
-              {
-                "question": "What is the purpose of the 'key' prop in React lists?",
-                "options": [
-                  "To uniquely identify each list item for efficient rendering",
-                  "To style the list item",
-                  "To link the list item with its state",
-                  "To track the order of the list items"
-                ],
-                "correctAnswer": "To uniquely identify each list item for efficient rendering"
-              },
-              {
-                "question": "What is a React component?",
-                "options": [
-                  "A reusable UI element that can be rendered and updated",
-                  "A function that handles data fetching",
-                  "A server-side script",
-                  "A CSS class for styling"
-                ],
-                "correctAnswer": "A reusable UI element that can be rendered and updated"
-              },
-              {
-                "question": "Which of the following is a type of React component?",
-                "options": [
-                  "Functional Component",
-                  "Class Component",
-                  "Both Functional and Class Component",
-                  "Neither"
-                ],
-                "correctAnswer": "Both Functional and Class Component"
-              },
-              {
-                "question": "What hook is used to manage state in a functional component?",
-                "options": [
-                  "useState()",
-                  "useEffect()",
-                  "useContext()",
-                  "useReducer()"
-                ],
-                "correctAnswer": "useState()"
-              },
-              {
-                "question": "How do you pass data from a parent component to a child component in React?",
-                "options": [
-                  "Using props",
-                  "Using state",
-                  "Using context",
-                  "Using events"
-                ],
-                "correctAnswer": "Using props"
-              },
-              {
-                "question": "What is 'useEffect' used for in React?",
-                "options": [
-                  "To handle side effects such as data fetching and DOM manipulation",
-                  "To manage component state",
-                  "To define the structure of a component",
-                  "To pass props between components"
-                ],
-                "correctAnswer": "To handle side effects such as data fetching and DOM manipulation"
-              },
-              {
-                "question": "What is the React 'context' used for?",
-                "options": [
-                  "To provide a way to pass data through the component tree without passing props manually at every level",
-                  "To create components",
-                  "To manage component lifecycle methods",
-                  "To update the component state"
-                ],
-                "correctAnswer": "To provide a way to pass data through the component tree without passing props manually at every level"
-              },
-              {
-                "question": "Which of the following is the correct way to bind an event handler in React?",
-                "options": [
-                  "this.handleClick = this.handleClick.bind(this)",
-                  "handleClick.bind(this)",
-                  "this.handleClick()",
-                  "bind(this.handleClick)"
-                ],
-                "correctAnswer": "this.handleClick = this.handleClick.bind(this)"
-              },
-              {
-                "question": "Which React feature allows you to handle lifecycle events in a functional component?",
-                "options": [
-                  "useEffect()",
-                  "componentDidMount()",
-                  "componentWillUnmount()",
-                  "componentDidUpdate()"
-                ],
-                "correctAnswer": "useEffect()"
-              },
-              {
-                "question": "How do you conditionally render a component in React?",
-                "options": [
-                  "Using if statements or ternary operators",
-                  "Using the conditional operator",
-                  "Using switch-case",
-                  "Using a for loop"
-                ],
-                "correctAnswer": "Using if statements or ternary operators"
-              },
-              {
-                "question": "What is the 'state' in a React component?",
-                "options": [
-                  "An object that holds data that influences the rendering of the component",
-                  "A method for handling events",
-                  "A function used for rendering the component",
-                  "A global object available to all components"
-                ],
-                "correctAnswer": "An object that holds data that influences the rendering of the component"
-              },
-              {
-                "question": "What is the 'render' method used for in React?",
-                "options": [
-                  "To return JSX and render UI elements",
-                  "To handle events",
-                  "To manage component state",
-                  "To fetch data"
-                ],
-                "correctAnswer": "To return JSX and render UI elements"
-              },
-              {
-                "question": "How can you update the state in a class component?",
-                "options": [
-                  "this.setState()",
-                  "this.updateState()",
-                  "this.changeState()",
-                  "this.set()"
-                ],
-                "correctAnswer": "this.setState()"
-              },
-              {
-                "question": "Which method is used to create a new context in React?",
-                "options": [
-                  "React.createContext()",
-                  "React.createElement()",
-                  "React.context()",
-                  "createContext()"
-                ],
-                "correctAnswer": "React.createContext()"
-              },
-              {
-                "question": "What does the 'key' attribute help with in React lists?",
-                "options": [
-                  "Helping React identify which items have changed, are added, or are removed",
-                  "Defining the color of list items",
-                  "Assigning a unique style to each list item",
-                  "Making the list elements editable"
-                ],
-                "correctAnswer": "Helping React identify which items have changed, are added, or are removed"
-              },
-              {
-                "question": "Which of the following is the correct way to create a React element?",
-                "options": [
-                  "React.createElement('div', {}, 'Hello World')",
-                  "createElement('div', 'Hello World')",
-                  "React('div', 'Hello World')",
-                  "createElement('div', 'Hello World')"
-                ],
-                "correctAnswer": "React.createElement('div', {}, 'Hello World')"
-              }
-           
-          
-      ];
      
       
                           const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -408,4 +318,4 @@ const  Reactjs=()=>{
                         
           
     
-  export default  Reactjs;
+  export default Os;

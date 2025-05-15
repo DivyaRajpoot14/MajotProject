@@ -1,205 +1,117 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
-const  Reactjs=()=>{
+const  Ai=()=>{
     const questions = [
-      
-              {
-                "question": "What is React?",
-                "options": [
-                  "A JavaScript library for building user interfaces",
-                  "A JavaScript framework for building applications",
-                  "A CSS framework for building layouts",
-                  "A web server technology"
-                ],
-                "correctAnswer": "A JavaScript library for building user interfaces"
-              },
-              {
-                "question": "Which method is used to render a React element to the DOM?",
-                "options": [
-                  "ReactDOM.render()",
-                  "React.render()",
-                  "renderElement()",
-                  "DOM.render()"
-                ],
-                "correctAnswer": "ReactDOM.render()"
-              },
-              {
-                "question": "What is JSX?",
-                "options": [
-                  "A JavaScript syntax extension that allows writing HTML inside JavaScript",
-                  "A JavaScript framework for building components",
-                  "A method of styling HTML elements",
-                  "A tool for building backend services"
-                ],
-                "correctAnswer": "A JavaScript syntax extension that allows writing HTML inside JavaScript"
-              },
-              {
-                "question": "What is the purpose of the 'key' prop in React lists?",
-                "options": [
-                  "To uniquely identify each list item for efficient rendering",
-                  "To style the list item",
-                  "To link the list item with its state",
-                  "To track the order of the list items"
-                ],
-                "correctAnswer": "To uniquely identify each list item for efficient rendering"
-              },
-              {
-                "question": "What is a React component?",
-                "options": [
-                  "A reusable UI element that can be rendered and updated",
-                  "A function that handles data fetching",
-                  "A server-side script",
-                  "A CSS class for styling"
-                ],
-                "correctAnswer": "A reusable UI element that can be rendered and updated"
-              },
-              {
-                "question": "Which of the following is a type of React component?",
-                "options": [
-                  "Functional Component",
-                  "Class Component",
-                  "Both Functional and Class Component",
-                  "Neither"
-                ],
-                "correctAnswer": "Both Functional and Class Component"
-              },
-              {
-                "question": "What hook is used to manage state in a functional component?",
-                "options": [
-                  "useState()",
-                  "useEffect()",
-                  "useContext()",
-                  "useReducer()"
-                ],
-                "correctAnswer": "useState()"
-              },
-              {
-                "question": "How do you pass data from a parent component to a child component in React?",
-                "options": [
-                  "Using props",
-                  "Using state",
-                  "Using context",
-                  "Using events"
-                ],
-                "correctAnswer": "Using props"
-              },
-              {
-                "question": "What is 'useEffect' used for in React?",
-                "options": [
-                  "To handle side effects such as data fetching and DOM manipulation",
-                  "To manage component state",
-                  "To define the structure of a component",
-                  "To pass props between components"
-                ],
-                "correctAnswer": "To handle side effects such as data fetching and DOM manipulation"
-              },
-              {
-                "question": "What is the React 'context' used for?",
-                "options": [
-                  "To provide a way to pass data through the component tree without passing props manually at every level",
-                  "To create components",
-                  "To manage component lifecycle methods",
-                  "To update the component state"
-                ],
-                "correctAnswer": "To provide a way to pass data through the component tree without passing props manually at every level"
-              },
-              {
-                "question": "Which of the following is the correct way to bind an event handler in React?",
-                "options": [
-                  "this.handleClick = this.handleClick.bind(this)",
-                  "handleClick.bind(this)",
-                  "this.handleClick()",
-                  "bind(this.handleClick)"
-                ],
-                "correctAnswer": "this.handleClick = this.handleClick.bind(this)"
-              },
-              {
-                "question": "Which React feature allows you to handle lifecycle events in a functional component?",
-                "options": [
-                  "useEffect()",
-                  "componentDidMount()",
-                  "componentWillUnmount()",
-                  "componentDidUpdate()"
-                ],
-                "correctAnswer": "useEffect()"
-              },
-              {
-                "question": "How do you conditionally render a component in React?",
-                "options": [
-                  "Using if statements or ternary operators",
-                  "Using the conditional operator",
-                  "Using switch-case",
-                  "Using a for loop"
-                ],
-                "correctAnswer": "Using if statements or ternary operators"
-              },
-              {
-                "question": "What is the 'state' in a React component?",
-                "options": [
-                  "An object that holds data that influences the rendering of the component",
-                  "A method for handling events",
-                  "A function used for rendering the component",
-                  "A global object available to all components"
-                ],
-                "correctAnswer": "An object that holds data that influences the rendering of the component"
-              },
-              {
-                "question": "What is the 'render' method used for in React?",
-                "options": [
-                  "To return JSX and render UI elements",
-                  "To handle events",
-                  "To manage component state",
-                  "To fetch data"
-                ],
-                "correctAnswer": "To return JSX and render UI elements"
-              },
-              {
-                "question": "How can you update the state in a class component?",
-                "options": [
-                  "this.setState()",
-                  "this.updateState()",
-                  "this.changeState()",
-                  "this.set()"
-                ],
-                "correctAnswer": "this.setState()"
-              },
-              {
-                "question": "Which method is used to create a new context in React?",
-                "options": [
-                  "React.createContext()",
-                  "React.createElement()",
-                  "React.context()",
-                  "createContext()"
-                ],
-                "correctAnswer": "React.createContext()"
-              },
-              {
-                "question": "What does the 'key' attribute help with in React lists?",
-                "options": [
-                  "Helping React identify which items have changed, are added, or are removed",
-                  "Defining the color of list items",
-                  "Assigning a unique style to each list item",
-                  "Making the list elements editable"
-                ],
-                "correctAnswer": "Helping React identify which items have changed, are added, or are removed"
-              },
-              {
-                "question": "Which of the following is the correct way to create a React element?",
-                "options": [
-                  "React.createElement('div', {}, 'Hello World')",
-                  "createElement('div', 'Hello World')",
-                  "React('div', 'Hello World')",
-                  "createElement('div', 'Hello World')"
-                ],
-                "correctAnswer": "React.createElement('div', {}, 'Hello World')"
-              }
-           
-          
+        {
+          question: "Who is known as the father of Artificial Intelligence?",
+          options: ["Alan Turing", "John McCarthy", "Geoffrey Hinton", "Marvin Minsky"],
+          correctAnswer: "John McCarthy"
+        },
+        {
+          question: "Which language is commonly used for AI programming?",
+          options: ["Python", "HTML", "PHP", "CSS"],
+          correctAnswer: "Python"
+        },
+        {
+          question: "What is the goal of Artificial Intelligence?",
+          options: ["To create computer programs", "To solve complex problems", "To simulate human intelligence", "To develop websites"],
+          correctAnswer: "To simulate human intelligence"
+        },
+        {
+          question: "Which of the following is a type of AI?",
+          options: ["Narrow AI", "Broad AI", "Specific AI", "Light AI"],
+          correctAnswer: "Narrow AI"
+        },
+        {
+          question: "Which AI technique is inspired by the human brain?",
+          options: ["Genetic Algorithms", "Neural Networks", "Fuzzy Logic", "Expert Systems"],
+          correctAnswer: "Neural Networks"
+        },
+        {
+          question: "Which of these is an application of AI?",
+          options: ["Spam filtering", "Compiler design", "Operating systems", "File management"],
+          correctAnswer: "Spam filtering"
+        },
+        {
+          question: "What is the Turing Test used for?",
+          options: ["Measuring memory", "Testing web speed", "Evaluating AI intelligence", "Comparing programming languages"],
+          correctAnswer: "Evaluating AI intelligence"
+        },
+        {
+          question: "Which AI algorithm is used for pathfinding?",
+          options: ["K-Means", "Minimax", "A*", "Naive Bayes"],
+          correctAnswer: "A*"
+        },
+        {
+          question: "Which of the following is not a machine learning type?",
+          options: ["Supervised", "Unsupervised", "Reinforcement", "Descriptive"],
+          correctAnswer: "Descriptive"
+        },
+        {
+          question: "Which AI technique deals with uncertainty?",
+          options: ["Neural networks", "Fuzzy logic", "Linear regression", "Decision trees"],
+          correctAnswer: "Fuzzy logic"
+        },
+        {
+          question: "Which one is an example of voice-based AI?",
+          options: ["Siri", "Google Chrome", "MS Word", "Photoshop"],
+          correctAnswer: "Siri"
+        },
+        {
+          question: "What is the primary function of a knowledge base in an expert system?",
+          options: ["Data storage", "Programming", "Storing rules and facts", "UI rendering"],
+          correctAnswer: "Storing rules and facts"
+        },
+        {
+          question: "What is an agent in AI?",
+          options: ["A human interface", "A smart sensor", "An entity that perceives and acts", "A code debugger"],
+          correctAnswer: "An entity that perceives and acts"
+        },
+        {
+          question: "Which is NOT a component of AI?",
+          options: ["Learning", "Reasoning", "Sensing", "Compiling"],
+          correctAnswer: "Compiling"
+        },
+        {
+          question: "What is used to represent knowledge in AI?",
+          options: ["Knowledge Graphs", "Syntax Trees", "XML", "Tables"],
+          correctAnswer: "Knowledge Graphs"
+        },
+        {
+          question: "Which of the following is used for AI model training?",
+          options: ["Labeled data", "JavaScript", "Unindexed files", "JSON"],
+          correctAnswer: "Labeled data"
+        },
+        {
+          question: "What is backpropagation used for?",
+          options: ["Encrypting data", "Training neural networks", "Sorting arrays", "Compiling programs"],
+          correctAnswer: "Training neural networks"
+        },
+        {
+          question: "What is the output of a classification model?",
+          options: ["Number", "Category", "Graph", "Image"],
+          correctAnswer: "Category"
+        },
+        {
+          question: "What type of learning occurs with rewards and punishments?",
+          options: ["Supervised", "Unsupervised", "Reinforcement", "Active"],
+          correctAnswer: "Reinforcement"
+        },
+        {
+          question: "Which AI technique is used in recommendation systems?",
+          options: ["Rule-based systems", "Clustering", "Collaborative filtering", "Fuzzy logic"],
+          correctAnswer: "Collaborative filtering"
+        }
       ];
+      
+          
+               
+      
      
       
                           const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -408,4 +320,4 @@ const  Reactjs=()=>{
                         
           
     
-  export default  Reactjs;
+  export default Ai;

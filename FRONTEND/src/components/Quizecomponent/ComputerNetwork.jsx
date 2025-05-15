@@ -4,202 +4,113 @@ import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
-const  Reactjs=()=>{
+const  Cn=()=>{
     const questions = [
-      
-              {
-                "question": "What is React?",
-                "options": [
-                  "A JavaScript library for building user interfaces",
-                  "A JavaScript framework for building applications",
-                  "A CSS framework for building layouts",
-                  "A web server technology"
-                ],
-                "correctAnswer": "A JavaScript library for building user interfaces"
-              },
-              {
-                "question": "Which method is used to render a React element to the DOM?",
-                "options": [
-                  "ReactDOM.render()",
-                  "React.render()",
-                  "renderElement()",
-                  "DOM.render()"
-                ],
-                "correctAnswer": "ReactDOM.render()"
-              },
-              {
-                "question": "What is JSX?",
-                "options": [
-                  "A JavaScript syntax extension that allows writing HTML inside JavaScript",
-                  "A JavaScript framework for building components",
-                  "A method of styling HTML elements",
-                  "A tool for building backend services"
-                ],
-                "correctAnswer": "A JavaScript syntax extension that allows writing HTML inside JavaScript"
-              },
-              {
-                "question": "What is the purpose of the 'key' prop in React lists?",
-                "options": [
-                  "To uniquely identify each list item for efficient rendering",
-                  "To style the list item",
-                  "To link the list item with its state",
-                  "To track the order of the list items"
-                ],
-                "correctAnswer": "To uniquely identify each list item for efficient rendering"
-              },
-              {
-                "question": "What is a React component?",
-                "options": [
-                  "A reusable UI element that can be rendered and updated",
-                  "A function that handles data fetching",
-                  "A server-side script",
-                  "A CSS class for styling"
-                ],
-                "correctAnswer": "A reusable UI element that can be rendered and updated"
-              },
-              {
-                "question": "Which of the following is a type of React component?",
-                "options": [
-                  "Functional Component",
-                  "Class Component",
-                  "Both Functional and Class Component",
-                  "Neither"
-                ],
-                "correctAnswer": "Both Functional and Class Component"
-              },
-              {
-                "question": "What hook is used to manage state in a functional component?",
-                "options": [
-                  "useState()",
-                  "useEffect()",
-                  "useContext()",
-                  "useReducer()"
-                ],
-                "correctAnswer": "useState()"
-              },
-              {
-                "question": "How do you pass data from a parent component to a child component in React?",
-                "options": [
-                  "Using props",
-                  "Using state",
-                  "Using context",
-                  "Using events"
-                ],
-                "correctAnswer": "Using props"
-              },
-              {
-                "question": "What is 'useEffect' used for in React?",
-                "options": [
-                  "To handle side effects such as data fetching and DOM manipulation",
-                  "To manage component state",
-                  "To define the structure of a component",
-                  "To pass props between components"
-                ],
-                "correctAnswer": "To handle side effects such as data fetching and DOM manipulation"
-              },
-              {
-                "question": "What is the React 'context' used for?",
-                "options": [
-                  "To provide a way to pass data through the component tree without passing props manually at every level",
-                  "To create components",
-                  "To manage component lifecycle methods",
-                  "To update the component state"
-                ],
-                "correctAnswer": "To provide a way to pass data through the component tree without passing props manually at every level"
-              },
-              {
-                "question": "Which of the following is the correct way to bind an event handler in React?",
-                "options": [
-                  "this.handleClick = this.handleClick.bind(this)",
-                  "handleClick.bind(this)",
-                  "this.handleClick()",
-                  "bind(this.handleClick)"
-                ],
-                "correctAnswer": "this.handleClick = this.handleClick.bind(this)"
-              },
-              {
-                "question": "Which React feature allows you to handle lifecycle events in a functional component?",
-                "options": [
-                  "useEffect()",
-                  "componentDidMount()",
-                  "componentWillUnmount()",
-                  "componentDidUpdate()"
-                ],
-                "correctAnswer": "useEffect()"
-              },
-              {
-                "question": "How do you conditionally render a component in React?",
-                "options": [
-                  "Using if statements or ternary operators",
-                  "Using the conditional operator",
-                  "Using switch-case",
-                  "Using a for loop"
-                ],
-                "correctAnswer": "Using if statements or ternary operators"
-              },
-              {
-                "question": "What is the 'state' in a React component?",
-                "options": [
-                  "An object that holds data that influences the rendering of the component",
-                  "A method for handling events",
-                  "A function used for rendering the component",
-                  "A global object available to all components"
-                ],
-                "correctAnswer": "An object that holds data that influences the rendering of the component"
-              },
-              {
-                "question": "What is the 'render' method used for in React?",
-                "options": [
-                  "To return JSX and render UI elements",
-                  "To handle events",
-                  "To manage component state",
-                  "To fetch data"
-                ],
-                "correctAnswer": "To return JSX and render UI elements"
-              },
-              {
-                "question": "How can you update the state in a class component?",
-                "options": [
-                  "this.setState()",
-                  "this.updateState()",
-                  "this.changeState()",
-                  "this.set()"
-                ],
-                "correctAnswer": "this.setState()"
-              },
-              {
-                "question": "Which method is used to create a new context in React?",
-                "options": [
-                  "React.createContext()",
-                  "React.createElement()",
-                  "React.context()",
-                  "createContext()"
-                ],
-                "correctAnswer": "React.createContext()"
-              },
-              {
-                "question": "What does the 'key' attribute help with in React lists?",
-                "options": [
-                  "Helping React identify which items have changed, are added, or are removed",
-                  "Defining the color of list items",
-                  "Assigning a unique style to each list item",
-                  "Making the list elements editable"
-                ],
-                "correctAnswer": "Helping React identify which items have changed, are added, or are removed"
-              },
-              {
-                "question": "Which of the following is the correct way to create a React element?",
-                "options": [
-                  "React.createElement('div', {}, 'Hello World')",
-                  "createElement('div', 'Hello World')",
-                  "React('div', 'Hello World')",
-                  "createElement('div', 'Hello World')"
-                ],
-                "correctAnswer": "React.createElement('div', {}, 'Hello World')"
-              }
-           
+    
+            {
+              question: "Which device is used to connect different networks together?",
+              options: ["Switch", "Router", "Hub", "Repeater"],
+              correctAnswer: "Router"
+            },
+            {
+              question: "Which layer of the OSI model is responsible for end-to-end communication?",
+              options: ["Transport", "Network", "Data Link", "Session"],
+              correctAnswer: "Transport"
+            },
+            {
+              question: "What does IP stand for?",
+              options: ["Internet Protocol", "Internal Process", "Internet Process", "Information Protocol"],
+              correctAnswer: "Internet Protocol"
+            },
+            {
+              question: "Which protocol is used to send emails?",
+              options: ["SMTP", "FTP", "HTTP", "SNMP"],
+              correctAnswer: "SMTP"
+            },
+            {
+              question: "Which of the following is not a guided transmission medium?",
+              options: ["Twisted Pair", "Coaxial Cable", "Fiber Optic", "Radio Waves"],
+              correctAnswer: "Radio Waves"
+            },
+            {
+              question: "What is the default port number of HTTP?",
+              options: ["20", "21", "80", "110"],
+              correctAnswer: "80"
+            },
+            {
+              question: "Which topology requires a central controller or hub?",
+              options: ["Bus", "Ring", "Star", "Mesh"],
+              correctAnswer: "Star"
+            },
+            {
+              question: "What does DNS stand for?",
+              options: ["Domain Network Service", "Digital Network Server", "Domain Name System", "Data Number Service"],
+              correctAnswer: "Domain Name System"
+            },
+            {
+              question: "Which protocol is used to retrieve emails from a server?",
+              options: ["POP3", "SMTP", "HTTP", "SSH"],
+              correctAnswer: "POP3"
+            },
+            {
+              question: "Which of the following uses packet switching?",
+              options: ["Telephone Network", "Circuit Switching", "Internet", "Cable TV"],
+              correctAnswer: "Internet"
+            },
+            {
+              question: "Which of these is a class C IP address?",
+              options: ["10.0.0.1", "172.16.0.1", "192.168.1.1", "224.0.0.1"],
+              correctAnswer: "192.168.1.1"
+            },
+            {
+              question: "Which layer is responsible for logical addressing?",
+              options: ["Data Link", "Transport", "Network", "Physical"],
+              correctAnswer: "Network"
+            },
+            {
+              question: "What is the full form of LAN?",
+              options: ["Local Area Network", "Long Area Network", "Large Access Network", "Lightweight Access Node"],
+              correctAnswer: "Local Area Network"
+            },
+            {
+              question: "Which protocol is used for secure communication over the Internet?",
+              options: ["HTTP", "FTP", "HTTPS", "Telnet"],
+              correctAnswer: "HTTPS"
+            },
+            {
+              question: "Which of the following devices operates at the Data Link layer?",
+              options: ["Router", "Switch", "Gateway", "Repeater"],
+              correctAnswer: "Switch"
+            },
+            {
+              question: "Which addressing method is used in Ethernet?",
+              options: ["IP Address", "Port Address", "MAC Address", "Logical Address"],
+              correctAnswer: "MAC Address"
+            },
+            {
+              question: "Which of these protocols is connection-oriented?",
+              options: ["UDP", "TCP", "ICMP", "IP"],
+              correctAnswer: "TCP"
+            },
+            {
+              question: "The maximum length of a CAT5 cable is approximately:",
+              options: ["50 meters", "100 meters", "200 meters", "500 meters"],
+              correctAnswer: "100 meters"
+            },
+            {
+              question: "Which device regenerates signals over the same network before sending?",
+              options: ["Router", "Switch", "Repeater", "Modem"],
+              correctAnswer: "Repeater"
+            },
+            {
+              question: "IPv6 addresses are how many bits long?",
+              options: ["32", "64", "128", "256"],
+              correctAnswer: "128"
+            }
+          ];
           
-      ];
+               
+      
      
       
                           const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -408,4 +319,4 @@ const  Reactjs=()=>{
                         
           
     
-  export default  Reactjs;
+  export default Cn;

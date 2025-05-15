@@ -4,202 +4,113 @@ import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { Howl } from "howler";
-const  Reactjs=()=>{
-    const questions = [
-      
-              {
-                "question": "What is React?",
-                "options": [
-                  "A JavaScript library for building user interfaces",
-                  "A JavaScript framework for building applications",
-                  "A CSS framework for building layouts",
-                  "A web server technology"
-                ],
-                "correctAnswer": "A JavaScript library for building user interfaces"
-              },
-              {
-                "question": "Which method is used to render a React element to the DOM?",
-                "options": [
-                  "ReactDOM.render()",
-                  "React.render()",
-                  "renderElement()",
-                  "DOM.render()"
-                ],
-                "correctAnswer": "ReactDOM.render()"
-              },
-              {
-                "question": "What is JSX?",
-                "options": [
-                  "A JavaScript syntax extension that allows writing HTML inside JavaScript",
-                  "A JavaScript framework for building components",
-                  "A method of styling HTML elements",
-                  "A tool for building backend services"
-                ],
-                "correctAnswer": "A JavaScript syntax extension that allows writing HTML inside JavaScript"
-              },
-              {
-                "question": "What is the purpose of the 'key' prop in React lists?",
-                "options": [
-                  "To uniquely identify each list item for efficient rendering",
-                  "To style the list item",
-                  "To link the list item with its state",
-                  "To track the order of the list items"
-                ],
-                "correctAnswer": "To uniquely identify each list item for efficient rendering"
-              },
-              {
-                "question": "What is a React component?",
-                "options": [
-                  "A reusable UI element that can be rendered and updated",
-                  "A function that handles data fetching",
-                  "A server-side script",
-                  "A CSS class for styling"
-                ],
-                "correctAnswer": "A reusable UI element that can be rendered and updated"
-              },
-              {
-                "question": "Which of the following is a type of React component?",
-                "options": [
-                  "Functional Component",
-                  "Class Component",
-                  "Both Functional and Class Component",
-                  "Neither"
-                ],
-                "correctAnswer": "Both Functional and Class Component"
-              },
-              {
-                "question": "What hook is used to manage state in a functional component?",
-                "options": [
-                  "useState()",
-                  "useEffect()",
-                  "useContext()",
-                  "useReducer()"
-                ],
-                "correctAnswer": "useState()"
-              },
-              {
-                "question": "How do you pass data from a parent component to a child component in React?",
-                "options": [
-                  "Using props",
-                  "Using state",
-                  "Using context",
-                  "Using events"
-                ],
-                "correctAnswer": "Using props"
-              },
-              {
-                "question": "What is 'useEffect' used for in React?",
-                "options": [
-                  "To handle side effects such as data fetching and DOM manipulation",
-                  "To manage component state",
-                  "To define the structure of a component",
-                  "To pass props between components"
-                ],
-                "correctAnswer": "To handle side effects such as data fetching and DOM manipulation"
-              },
-              {
-                "question": "What is the React 'context' used for?",
-                "options": [
-                  "To provide a way to pass data through the component tree without passing props manually at every level",
-                  "To create components",
-                  "To manage component lifecycle methods",
-                  "To update the component state"
-                ],
-                "correctAnswer": "To provide a way to pass data through the component tree without passing props manually at every level"
-              },
-              {
-                "question": "Which of the following is the correct way to bind an event handler in React?",
-                "options": [
-                  "this.handleClick = this.handleClick.bind(this)",
-                  "handleClick.bind(this)",
-                  "this.handleClick()",
-                  "bind(this.handleClick)"
-                ],
-                "correctAnswer": "this.handleClick = this.handleClick.bind(this)"
-              },
-              {
-                "question": "Which React feature allows you to handle lifecycle events in a functional component?",
-                "options": [
-                  "useEffect()",
-                  "componentDidMount()",
-                  "componentWillUnmount()",
-                  "componentDidUpdate()"
-                ],
-                "correctAnswer": "useEffect()"
-              },
-              {
-                "question": "How do you conditionally render a component in React?",
-                "options": [
-                  "Using if statements or ternary operators",
-                  "Using the conditional operator",
-                  "Using switch-case",
-                  "Using a for loop"
-                ],
-                "correctAnswer": "Using if statements or ternary operators"
-              },
-              {
-                "question": "What is the 'state' in a React component?",
-                "options": [
-                  "An object that holds data that influences the rendering of the component",
-                  "A method for handling events",
-                  "A function used for rendering the component",
-                  "A global object available to all components"
-                ],
-                "correctAnswer": "An object that holds data that influences the rendering of the component"
-              },
-              {
-                "question": "What is the 'render' method used for in React?",
-                "options": [
-                  "To return JSX and render UI elements",
-                  "To handle events",
-                  "To manage component state",
-                  "To fetch data"
-                ],
-                "correctAnswer": "To return JSX and render UI elements"
-              },
-              {
-                "question": "How can you update the state in a class component?",
-                "options": [
-                  "this.setState()",
-                  "this.updateState()",
-                  "this.changeState()",
-                  "this.set()"
-                ],
-                "correctAnswer": "this.setState()"
-              },
-              {
-                "question": "Which method is used to create a new context in React?",
-                "options": [
-                  "React.createContext()",
-                  "React.createElement()",
-                  "React.context()",
-                  "createContext()"
-                ],
-                "correctAnswer": "React.createContext()"
-              },
-              {
-                "question": "What does the 'key' attribute help with in React lists?",
-                "options": [
-                  "Helping React identify which items have changed, are added, or are removed",
-                  "Defining the color of list items",
-                  "Assigning a unique style to each list item",
-                  "Making the list elements editable"
-                ],
-                "correctAnswer": "Helping React identify which items have changed, are added, or are removed"
-              },
-              {
-                "question": "Which of the following is the correct way to create a React element?",
-                "options": [
-                  "React.createElement('div', {}, 'Hello World')",
-                  "createElement('div', 'Hello World')",
-                  "React('div', 'Hello World')",
-                  "createElement('div', 'Hello World')"
-                ],
-                "correctAnswer": "React.createElement('div', {}, 'Hello World')"
-              }
-           
-          
+const  Asp=()=>{
+    const questions=[
+        {
+          question: "ASP.NET is a part of which framework?",
+          options: [".NET Framework", "J2EE", "Spring", "Angular"],
+          correctAnswer: ".NET Framework"
+        },
+        {
+          question: "Which language can be used to code in ASP.NET?",
+          options: ["C#", "VB.NET", "Both C# and VB.NET", "Java"],
+          correctAnswer: "Both C# and VB.NET"
+        },
+        {
+          question: "What does ASP stand for?",
+          options: ["Advanced Server Pages", "Active Server Pages", "Application Server Pages", "Active Script Pages"],
+          correctAnswer: "Active Server Pages"
+        },
+        {
+          question: "Which file extension is used for ASP.NET web forms?",
+          options: [".aspx", ".asp", ".html", ".cs"],
+          correctAnswer: ".aspx"
+        },
+        {
+          question: "Which server control is used to link to another page?",
+          options: ["<asp:Button>", "<asp:LinkButton>", "<asp:HyperLink>", "<asp:Redirect>"],
+          correctAnswer: "<asp:HyperLink>"
+        },
+        {
+          question: "Which method is used to send data from one page to another in ASP.NET?",
+          options: ["Server.Transfer", "Session.Redirect", "Page.Redirect", "Data.Push"],
+          correctAnswer: "Server.Transfer"
+        },
+        {
+          question: "Which object is used to store user-specific information in ASP.NET?",
+          options: ["Application", "Session", "Cache", "ViewState"],
+          correctAnswer: "Session"
+        },
+        {
+          question: "What is ViewState used for in ASP.NET?",
+          options: ["Store server data", "Store session state", "Store page and control values", "Store cookie data"],
+          correctAnswer: "Store page and control values"
+        },
+        {
+          question: "Which directive defines page-specific attributes in ASP.NET?",
+          options: ["<%@ Page %>", "<%@ Import %>", "<%@ Assembly %>", "<%@ OutputCache %>"],
+          correctAnswer: "<%@ Page %>"
+        },
+        {
+          question: "What is the default event for a Button control in ASP.NET?",
+          options: ["Click", "Load", "Submit", "Init"],
+          correctAnswer: "Click"
+        },
+        {
+          question: "Which control is used to display data in a tabular format?",
+          options: ["GridView", "Repeater", "DataList", "ListView"],
+          correctAnswer: "GridView"
+        },
+        {
+          question: "What is the use of the Web.config file?",
+          options: ["Configure application settings", "Compile the application", "Store HTML code", "Configure IIS"],
+          correctAnswer: "Configure application settings"
+        },
+        {
+          question: "Which authentication mode is NOT supported by ASP.NET?",
+          options: ["Windows", "Forms", "Passport", "MySQL"],
+          correctAnswer: "MySQL"
+        },
+        {
+          question: "What does IIS stand for?",
+          options: ["Internet Information Server", "Internal Internet Server", "Information Integration System", "Internet Installation System"],
+          correctAnswer: "Internet Information Server"
+        },
+        {
+          question: "What is the main purpose of the Global.asax file?",
+          options: ["Define global settings and application events", "Write HTML", "Manage client-side scripts", "Connect to databases"],
+          correctAnswer: "Define global settings and application events"
+        },
+        {
+          question: "Which control allows for repeated data-bound content?",
+          options: ["Repeater", "GridView", "Label", "Textbox"],
+          correctAnswer: "Repeater"
+        },
+        {
+          question: "What is postback in ASP.NET?",
+          options: ["Sending data from client to server", "Refreshing the browser", "Navigating to another page", "Reposting a form to the server"],
+          correctAnswer: "Reposting a form to the server"
+        },
+        {
+          question: "Which object is used to manage application-level information?",
+          options: ["Application", "Session", "ViewState", "Server"],
+          correctAnswer: "Application"
+        },
+        {
+          question: "What is the default session timeout in ASP.NET?",
+          options: ["10 minutes", "20 minutes", "30 minutes", "60 minutes"],
+          correctAnswer: "20 minutes"
+        },
+        {
+          question: "Which component is responsible for compiling ASP.NET pages?",
+          options: ["CLR", "JIT", "ASP.NET Engine", "ASP.NET Compiler"],
+          correctAnswer: "ASP.NET Compiler"
+        }
       ];
+      
+          
+               
+      
      
       
                           const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -408,4 +319,4 @@ const  Reactjs=()=>{
                         
           
     
-  export default  Reactjs;
+  export default Asp;
