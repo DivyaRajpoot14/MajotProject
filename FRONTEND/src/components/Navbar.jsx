@@ -226,10 +226,10 @@ const NavBar = () => {
             `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`}>HOME</NavLink>
           <NavLink to="/quize" className={({ isActive }) =>
             `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`}>QUIZ</NavLink>
-          <NavLink to="/score" className={({ isActive }) =>
-            `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`}>SCORE</NavLink>
+          <NavLink to="/ciq" className={({ isActive }) =>
+            `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`}>Interview Questions</NavLink>
             <NavLink to="/about" className={({ isActive }) =>
-            `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`}>ABOUT US</NavLink>
+            `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`}>ABOUT</NavLink>
           <NavLink to="/contact" className={({ isActive }) =>
             `text-white hover:scale-105 px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`} onClick={Contact}>CONTACT</NavLink>
         </div>
@@ -302,13 +302,12 @@ const NavBar = () => {
             `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`} onClick={toggleMenu}>HOME</NavLink>
           <NavLink to="/quize" className={({ isActive }) =>
             `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`} onClick={toggleMenu}>QUIZ</NavLink>
-          <NavLink to="/score" className={({ isActive }) =>
-            `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`} onClick={toggleMenu}>SCORE</NavLink>
-          <NavLink to="/contact" className={({ isActive }) =>
+          <NavLink to="/ciq" className={({ isActive }) =>
+            `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-600" : ""}`} onClick={toggleMenu}>Interview Questions</NavLink>
+          <NavLink to="/about" className={({ isActive }) =>
+            `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`} onClick={toggleMenu}> ABOUT</NavLink>
+   <NavLink to="/contact" className={({ isActive }) =>
             `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`} onClick={toggleMenu}>CONTACT</NavLink>
-          <NavLink to="/profile" className={({ isActive }) =>
-            `block text-white px-3 py-2 rounded-md text-base font-medium uppercase ${isActive ? "bg-blue-500" : ""}`} onClick={toggleMenu}>PROFILE</NavLink>
-
           <div className="mt-4 flex flex-col items-start space-y-2">
             {isLoggedIn ? (
               <button

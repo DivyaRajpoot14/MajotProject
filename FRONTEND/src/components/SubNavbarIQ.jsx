@@ -111,31 +111,31 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-
 const links = [
-  { to: "/quize", label: "C" },
-  { to: "/cpp", label: "C++" },
-  { to: "/java", label: "JAVA" },
-  { to: "/python", label: "PYTHON" },
-  { to: "/csharp", label: "C#" },
-  { to: "/dbms", label: "DBMS" },
-  { to: "/iot", label: "IOT" },
-  { to: "/ds", label: "DATA STRUCTURE" },
-  { to: "/dwh", label: "DATAWAREHOUSE" },
-  { to: "/html", label: "HTML" },
-  { to: "/css", label: "CSS" },
-  { to: "/js", label: "JS" },
-  { to: "/react", label: "REACT" },
-  { to: "/os", label: "OPERATING SYSTEM" },
-  { to: "/cn", label: "COMPUTER NETWORK" },
-  { to: "/se", label: "SOFTWARE ENGINEERING" },
-  { to: "/asp", label: "ASP.NET" },
-  { to: "/ai", label: "AI" },
-  { to: "/cc", label: "CLOUD COMPUTING" },
-  { to: "/ad", label: "ANDROID DEVEVLOPMENT" },
-];
-
-const SubNavbar = () => {
+    { to: "/ciq", label: "C" },
+    { to: "/cppiq", label: "C++" },
+    { to: "/javaiq", label: "JAVA" },
+    { to: "/pythoniq", label: "PYTHON" },
+    { to: "/csharpiq", label: "C#" },
+    { to: "/dbmsiq", label: "DBMS" },
+    { to: "/iotiq", label: "IOT" },
+    { to: "/dsiq", label: "DATA STRUCTURE" },
+    { to: "/dwhiq", label: "DATAWAREHOUSE" },
+    { to: "/htmliq", label: "HTML" },
+    { to: "/cssiq", label: "CSS" },
+    { to: "/jsiq", label: "JS" },
+    { to: "/reactiq", label: "REACT" },
+    { to: "/osiq", label: "OPERATING SYSTEM" },
+    { to: "/cniq", label: "COMPUTER NETWORK" },
+    { to: "/seiq", label: "SOFTWARE ENGINEERING" },
+    { to: "/aspiq", label: "ASP.NET" },
+    { to: "/aiiq", label: "AI" },
+    { to: "/cciq", label: "CLOUD COMPUTING" },
+    { to: "/adiq", label: "ANDROID DEVELOPMENT" },
+  ];
+  
+  
+const SubNavbarIQ = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -215,4 +215,4 @@ const SubNavbar = () => {
   );
 };
 
-export default SubNavbar;
+export default SubNavbarIQ;

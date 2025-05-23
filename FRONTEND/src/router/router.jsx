@@ -20,7 +20,7 @@ import Html from '../components/Quizecomponent/Html';
 import Css from '../components/Quizecomponent/Css';
 // import React from '../components/Quizecomponent/React';
 import Js from '../components/Quizecomponent/Js';
-import ScorePage from '../components/ScorePage/Scorepage';
+
 import Reactjs from '../components/Quizecomponent/React';
 import Os from '../components/Quizecomponent/Os';
 import Cn from '../components/Quizecomponent/ComputerNetwork';
@@ -29,8 +29,18 @@ import Asp from '../components/Quizecomponent/Asp';
 import Ai from '../components/Quizecomponent/Ai';
 import Cloud from '../components/Quizecomponent/Cloudcomputing';
 import Android from '../components/Quizecomponent/AndroidDev';
-import BlogPage from '../components/Blog';
 import AboutPage from '../components/Aboutus';
+import CInterviewQuestions from '../components/InterviewQuestion/cInterviewque';
+import CppInterviewQuestions from '../components/InterviewQuestion/cppInterviewque';
+import JavaInterviewQuestions from '../components/InterviewQuestion/javaInterviewque';
+import PythonInterviewQuestions from '../components/InterviewQuestion/pythonInterviewque';
+import CsharpInterviewQuestions from '../components/InterviewQuestion/CsharpInterviewque';
+import DbmsInterviewQuestions from '../components/InterviewQuestion/dbmsInterviewque';
+import IotInterviewQuestions from '../components/InterviewQuestion/iotInterviewque';
+import DsInterviewQuestions from '../components/InterviewQuestion/DataStructureInterviewque';
+import DwhInterviewQuestions from '../components/InterviewQuestion/dwhInterviewque';
+import HtmlInterviewQuestions from '../components/InterviewQuestion/htmlInterviewque';
+import CssInterviewQuestions from '../components/InterviewQuestion/cssInterviewque';
 
 
 // Quiz Components
@@ -43,7 +53,7 @@ const router = createBrowserRouter([
       { path: '/', element: <HomePage /> },
       { path: '/quize', element:  <C />  },
       { path: '/loginform', element: <Loginform /> },
-      {path:'/score',element:<ScorePage/>},
+     
       { path: '/signup', element: <Signup /> },
       { path: '/contact', element: <Contact /> },
       { path: '/profile', element: <Profile /> },
@@ -66,8 +76,20 @@ const router = createBrowserRouter([
       { path: '/asp', element: <Asp /> },
       {path:'/ai',element:<Ai/>},
       {path:'/cc',element:<Cloud/>},
-      {path:'/ad',element:<Android/>}
+      {path:'/ad',element:<Android/>},
+      {path:'/ciq',element:<CInterviewQuestions/>},
+      {path:'/cppiq',element:<CppInterviewQuestions/>},
+      {path:'/javaiq',element:<JavaInterviewQuestions/>},
+      {path:'/pythoniq',element:<PythonInterviewQuestions/>},
+      {path:'/csharpiq',element:<CsharpInterviewQuestions/>},
+      {path:'/dbmsiq',element:<DbmsInterviewQuestions/>},
+      {path:'/iotiq',element:<IotInterviewQuestions/>},
+      {path:'/dsiq',element:<DsInterviewQuestions/>},
+      {path:'/dwhiq',element:<DwhInterviewQuestions/>},
+      {path:'/htmliq',element:<HtmlInterviewQuestions/>},
+      {path: '/cssiq', element: <CssInterviewQuestions /> },
     ],
+
   },
 ]);
 
