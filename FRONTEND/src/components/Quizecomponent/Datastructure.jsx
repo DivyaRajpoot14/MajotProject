@@ -1,177 +1,279 @@
-  
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import { Howl } from "howler";
-const Ds=()=>{
-    const questions = [
-      
-          {
-            "question": "Which data structure uses LIFO (Last In First Out) principle?",
-            "options": ["Queue", "Stack", "Array", "Linked List"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the time complexity of accessing an element in an array by its index?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(1)"
-          },
-          {
-            "question": "Which data structure uses FIFO (First In First Out) principle?",
-            "options": ["Queue", "Stack", "Tree", "Graph"],
-            "correctAnswer": "Queue"
-          },
-          {
-            "question": "What is the worst-case time complexity of searching an element in a binary search tree?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
-            "correctAnswer": "O(n)"
-          },
-          {
-            "question": "Which of the following is not a linear data structure?",
-            "options": ["Array", "Queue", "Graph", "Stack"],
-            "correctAnswer": "Graph"
-          },
-          {
-            "question": "What is the maximum number of children a node can have in a binary tree?",
-            "options": ["1", "2", "3", "Unlimited"],
-            "correctAnswer": "2"
-          },
-          {
-            "question": "Which data structure is used to implement recursion?",
-            "options": ["Queue", "Stack", "Array", "Heap"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the time complexity of inserting an element into a max heap?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(log n)"
-          },
-          {
-            "question": "Which traversal method is used to retrieve data in sorted order from a binary search tree?",
-            "options": ["Pre-order", "In-order", "Post-order", "Level-order"],
-            "correctAnswer": "In-order"
-          },
-          {
-            "question": "What is the space complexity of a breadth-first search (BFS) in a graph?",
-            "options": ["O(1)", "O(V)", "O(E)", "O(V + E)"],
-            "correctAnswer": "O(V)"
-          },
-          {
-            "question": "Which data structure is best suited for implementing a priority queue?",
-            "options": ["Array", "Stack", "Heap", "Linked List"],
-            "correctAnswer": "Heap"
-          },
-          {
-            "question": "What is a circular queue?",
-            "options": [
-              "A queue that uses pointers",
-              "A queue where the last position is connected to the first",
-              "A queue with only one element",
-              "A queue that uses a stack internally"
-            ],
-            "correctAnswer": "A queue where the last position is connected to the first"
-          },
-          {
-            "question": "Which operation is not possible in a singly linked list?",
-            "options": [
-              "Insertion at the head",
-              "Deletion from the tail",
-              "Traversal in both directions",
-              "Search for an element"
-            ],
-            "correctAnswer": "Traversal in both directions"
-          },
-          {
-            "question": "What is a complete binary tree?",
-            "options": [
-              "A tree where all levels are completely filled",
-              "A tree where all nodes have two children",
-              "A tree where all leaves are at the same level",
-              "A tree where all nodes have a parent"
-            ],
-            "correctAnswer": "A tree where all levels are completely filled"
-          },
-          {
-            "question": "What is the worst-case time complexity of merge sort?",
-            "options": ["O(n)", "O(log n)", "O(n log n)", "O(n^2)"],
-            "correctAnswer": "O(n log n)"
-          },
-          {
-            "question": "Which of the following data structures is used in depth-first search (DFS)?",
-            "options": ["Queue", "Stack", "Heap", "Priority Queue"],
-            "correctAnswer": "Stack"
-          },
-          {
-            "question": "What is the main advantage of a doubly linked list over a singly linked list?",
-            "options": [
-              "Uses less memory",
-              "Easier to reverse",
-              "Faster traversal",
-              "Simpler implementation"
-            ],
-            "correctAnswer": "Easier to reverse"
-          },
-          {
-            "question": "What is the time complexity of deleting the maximum element from a max heap?",
-            "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-            "correctAnswer": "O(log n)"
-          },
-          {
-            "question": "Which of the following algorithms is used to find the shortest path in a graph?",
-            "options": [
-              "Depth-first search",
-              "Kruskal’s algorithm",
-              "Dijkstra’s algorithm",
-              "Prim’s algorithm"
-            ],
-            "correctAnswer": "Dijkstra’s algorithm"
-          },
-          {
-            "question": "Which data structure is most suitable for evaluating arithmetic expressions?",
-            "options": ["Queue", "Stack", "Array", "Linked List"],
-            "correctAnswer": "Stack"
-          }
-      
-      ];
-    
 
-
+const Ds= () => {
+  const navigate = useNavigate();
+  const allLevels = {
+    beginner: [
+      {
+        question: "Which of the following is a linear data structure?",
+        options: ["Tree", "Graph", "Array", "Hash Table"],
+        correctAnswer: "Array",
+      },
+      {
+        question: "What does FIFO stand for in data structures?",
+        options: ["First In First Out", "Fast Input Fast Output", "First Input First Output", "File Input File Output"],
+        correctAnswer: "First In First Out",
+      },
+      {
+        question: "Which data structure uses LIFO principle?",
+        options: ["Queue", "Stack", "Array", "Linked List"],
+        correctAnswer: "Stack",
+      },
+      {
+        question: "Which data structure allows dynamic memory allocation?",
+        options: ["Array", "Stack", "Linked List", "Queue"],
+        correctAnswer: "Linked List",
+      },
+      {
+        question: "Which of the following is not a primitive data structure?",
+        options: ["Array", "Stack", "Queue", "Integer"],
+        correctAnswer: "Stack",
+      },
+      {
+        question: "What is the default indexing of an array in most programming languages?",
+        options: ["1", "0", "-1", "Depends on language"],
+        correctAnswer: "0",
+      },
+      {
+        question: "Which operation is used to insert an element at the end of a queue?",
+        options: ["Pop", "Enqueue", "Push", "Insert"],
+        correctAnswer: "Enqueue",
+      },
+      {
+        question: "Which of these is used to implement recursion?",
+        options: ["Queue", "Stack", "Array", "Linked List"],
+        correctAnswer: "Stack",
+      },
+      {
+        question: "Which data structure is best suited for storing hierarchical data?",
+        options: ["Array", "Stack", "Tree", "Queue"],
+        correctAnswer: "Tree",
+      },
+      {
+        question: "Which operation removes the top element from a stack?",
+        options: ["Insert", "Delete", "Pop", "Enqueue"],
+        correctAnswer: "Pop",
+      },
+    ],
+    intermediate: [
+      {
+        question: "Which of the following is a non-linear data structure?",
+        options: ["Array", "Queue", "Stack", "Tree"],
+        correctAnswer: "Tree",
+      },
+      {
+        question: "In a linked list, each element is called a:",
+        options: ["Node", "Element", "Index", "Cell"],
+        correctAnswer: "Node",
+      },
+      {
+        question: "What is the time complexity of binary search?",
+        options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+        correctAnswer: "O(log n)",
+      },
+      {
+        question: "Which of these traversals is used to get the sorted elements of a BST?",
+        options: ["Preorder", "Inorder", "Postorder", "Level Order"],
+        correctAnswer: "Inorder",
+      },
+      {
+        question: "Which of the following is not a type of linked list?",
+        options: ["Singly", "Circular", "Doubly", "Triangular"],
+        correctAnswer: "Triangular",
+      },
+      {
+        question: "Which data structure is used in breadth-first search?",
+        options: ["Stack", "Queue", "Tree", "Graph"],
+        correctAnswer: "Queue",
+      },
+      {
+        question: "Which sorting algorithm is based on divide and conquer?",
+        options: ["Bubble Sort", "Selection Sort", "Merge Sort", "Insertion Sort"],
+        correctAnswer: "Merge Sort",
+      },
+      {
+        question: "Which of the following can be used to implement a priority queue?",
+        options: ["Array", "Linked List", "Heap", "Stack"],
+        correctAnswer: "Heap",
+      },
+      {
+        question: "What is the maximum number of children a binary tree node can have?",
+        options: ["1", "2", "3", "Any number"],
+        correctAnswer: "2",
+      },
+      {
+        question: "Which algorithm is used to find shortest path in a graph?",
+        options: ["Kruskal’s", "DFS", "Dijkstra’s", "Prim’s"],
+        correctAnswer: "Dijkstra’s",
+      },
+    ],
+    advanced: [
+      {
+        question: "What is the worst-case time complexity of quicksort?",
+        options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+        correctAnswer: "O(n^2)",
+      },
+      {
+        question: "Which traversal is used for depth-first search in graphs?",
+        options: ["Queue", "Stack", "Heap", "Priority Queue"],
+        correctAnswer: "Stack",
+      },
+      {
+        question: "Which of these is not a self-balancing binary search tree?",
+        options: ["AVL Tree", "Red-Black Tree", "Binary Heap", "Splay Tree"],
+        correctAnswer: "Binary Heap",
+      },
+      {
+        question: "In hashing, what is a collision?",
+        options: [
+          "When two data are equal",
+          "When hash function returns same index for different keys",
+          "When memory is full",
+          "When data is lost"
+        ],
+        correctAnswer: "When hash function returns same index for different keys",
+      },
+      {
+        question: "What is the time complexity of inserting an element in a heap?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+        correctAnswer: "O(log n)",
+      },
+      {
+        question: "Which graph representation is more space efficient for sparse graphs?",
+        options: ["Adjacency matrix", "Adjacency list", "Edge list", "Node matrix"],
+        correctAnswer: "Adjacency list",
+      },
+      {
+        question: "Which of these sorting algorithms is not stable?",
+        options: ["Merge Sort", "Bubble Sort", "Quick Sort", "Insertion Sort"],
+        correctAnswer: "Quick Sort",
+      },
+      {
+        question: "Which data structure is used in implementing recursion internally?",
+        options: ["Array", "Queue", "Stack", "Graph"],
+        correctAnswer: "Stack",
+      },
+      {
+        question: "In which traversal method is the root visited between left and right subtree?",
+        options: ["Preorder", "Inorder", "Postorder", "Level Order"],
+        correctAnswer: "Inorder",
+      },
+      {
+        question: "What is the height of a complete binary tree with n nodes?",
+        options: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+        correctAnswer: "O(log n)",
+      },
+    ]
+  };
+  
+  
+  
+    const levels = Object.keys(allLevels);
+    const scoreBeginner = parseInt(sessionStorage.getItem("score_beginner"), 10) || 0;
+    const scoreIntermediate = parseInt(sessionStorage.getItem("score_intermediate"), 10) || 0;
+    const scoreAdvanced = parseInt(sessionStorage.getItem("score_advanced"), 10) || 0;
+    const totalScore = scoreBeginner + scoreIntermediate + scoreAdvanced;
+    const totalPercentage = ((totalScore / 30) * 100).toFixed(2);
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
+  const [questions, setQuestions] = useState(allLevels[levels[0]]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
   const [timer, setTimer] = useState(20);
-  const [score] = useState(localStorage.getItem("bestScore") || 0);
-
-  const CORRECT_SOUND = new Howl({ src: ["/sounds/correct.mp3"] });
-  const WRONG_SOUND = new Howl({ src: ["/sounds/wrong.mp3"] });
-
+  const [levelCompleted, setLevelCompleted] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [showCompletionPopup, setShowCompletionPopup] = useState(false);
   const currentQuestion = questions[currentQuestionIndex];
-
+  const scorePercentage = (correctAnswersCount / questions.length) * 100;
   useEffect(() => {
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    const beginnerScore = parseInt(localStorage.getItem("score_beginner")) || 0;
+  
+    if (token) {
+      setAccessGranted(true);
+  
+      // If beginner is completed, start from the next level
+      if (beginnerScore >= 3) {
+        const nextLevelIndex = 1; // Assuming 'intermediate' is at index 1
+        setCurrentLevelIndex(nextLevelIndex);
+        setQuestions(allLevels[levels[nextLevelIndex]]);
+      } else {
+        setCurrentLevelIndex(0);
+        setQuestions(allLevels["beginner"]);
+      }
+  
+    } else {
+      setAccessGranted(false);
+      setCurrentLevelIndex(0);
+      setQuestions(allLevels["beginner"]);
+    }
+  }, []);
+  
+  // Load level data from localStorage on level change
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    const savedScore = parseInt(sessionStorage.getItem(levelKey)) || 0;
+  
+    if (savedScore >= 3) {
+      setCorrectAnswersCount(savedScore);
+      setShowCelebration(true);
+      setLevelCompleted(true);
+      setTimer(0); // stop timer
+    } else {
+      setCorrectAnswersCount(0);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    }
+  
+    setQuestions(allLevels[levels[currentLevelIndex]]);
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setShowCorrectAnswer(false);
+  }, [currentLevelIndex]);
+  
+  //  Save score and totalScore on update
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    sessionStorage.setItem(levelKey, correctAnswersCount);
+  
+    const total = levels.reduce((acc, level) => {
+      const val = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+      return acc + val;
+    }, 0);
+  
+    sessionStorage.setItem("totalScore", total);
+  }, [correctAnswersCount, currentLevelIndex]);
+  
+  // Timer countdown unless level is completed
+  useEffect(() => {
+    if (showCelebration) return;
+  
     const interval = setInterval(() => {
-      if (timer > 0) setTimer((t) => t - 1);
-      else handleOptionSelect(null);
+      if (timer > 0) {
+        setTimer((prev) => prev - 1);
+      } else {
+        handleOptionSelect(null);
+      }
     }, 1000);
+  
     return () => clearInterval(interval);
-  }, [timer]);
-
-  useEffect(() => {
-    localStorage.setItem("score", correctAnswersCount);
-  }, [correctAnswersCount]);
-
+  }, [timer, showCelebration]);
+  
+  //  Select answer
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     if (option === currentQuestion.correctAnswer) {
       setCorrectAnswersCount((prev) => prev + 1);
-      CORRECT_SOUND.play();
-    } else {
-      WRONG_SOUND.play();
     }
     setShowCorrectAnswer(true);
+  
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prev) => prev + 1);
@@ -180,12 +282,51 @@ const Ds=()=>{
         setTimer(20);
       } else {
         setShowCelebration(true);
+        setLevelCompleted(true);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }, 1000);
   };
-
-  const handlePrevious = () => {
+  
+  const handleNextLevel = () => {
+    const nextLevel = currentLevelIndex + 1;
+    if (nextLevel < levels.length) {
+      setCurrentLevelIndex(nextLevel);
+      setQuestions(allLevels[levels[nextLevel]]);
+      setCurrentQuestionIndex(0);
+      setSelectedOption(null);
+      setCorrectAnswersCount(0);
+      setShowCorrectAnswer(false);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    } else {
+      // Instead of alert, show popup card
+      setShowCompletionPopup(true);
+    }
+  };
+  
+  //  Restart current level
+  const handleRestartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setCorrectAnswersCount(0);
+    setShowCelebration(false);
+    setLevelCompleted(false);
+    setTimer(20);
+  };
+  
+  //  Navigate to next/previous question
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setSelectedOption(null);
+      setShowCorrectAnswer(false);
+      setTimer(20);
+    }
+  };
+  
+  const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1);
       setSelectedOption(null);
@@ -193,89 +334,148 @@ const Ds=()=>{
       setTimer(20);
     }
   };
-
-  const handleNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-      setSelectedOption(null);
-      setShowCorrectAnswer(false);
-      setTimer(20);
-    } else {
-      setShowCelebration(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handleRestartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setSelectedOption(null);
-    setCorrectAnswersCount(0);
-    setShowCelebration(false);
-    setTimer(20);
-  };
-
-  const handleExit = () => {
-    navigate("/");
-  };
-
-  const scorePercentage = (correctAnswersCount / questions.length) * 100;
-
+  
   return (
-    <div className="h-[100dvh] bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      <SubNavbar />
+    <>
+
+    <div className="h-[100dvh]  bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <SubNavbar/>
+      <div className="flex justify-center mt-32 gap-4">
+  {levels.map((level, index) => {
+    const levelScore = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+    const isBeginnerCompleted = parseInt(sessionStorage.getItem("score_beginner")) >= 3;
+
+    return (
+      <button
+        key={level}
+        className={`px-4 py-2 rounded  ${
+          currentLevelIndex === index
+            ? "bg-blue-600 text-white"
+            : levelScore >= 3
+            ? "bg-green-500 text-white"
+            : "bg-gray-300 text-black"
+        }`}
+        onClick={() => {
+          if (index === 0) {
+            // Beginner level - always accessible
+            setCurrentLevelIndex(index);
+          } else if (index === 1 && isBeginnerCompleted) {
+            // Intermediate level - only if beginner completed
+            setCurrentLevelIndex(index);
+          } else if (index === 2 && isBeginnerCompleted && levelScore >= 3) {
+            // Advanced level - only if intermediate is completed
+            const intermediateScore = parseInt(sessionStorage.getItem("score_intermediate")) || 0;
+            if (intermediateScore >= 3) {
+              setCurrentLevelIndex(index);
+            } else {
+              alert("Please complete Intermediate level first!");
+            }
+          } else {
+            alert("Please complete the Beginner level first!");
+          }
+        }}
+      >
+        {level.charAt(0).toUpperCase() + level.slice(1)}
+        {levelScore >= 3 && " ✅"}
+      </button>
+    );
+  })}
+</div>
 
       {showCelebration && scorePercentage >= 30 && (
         <Confetti width={window.innerWidth} height={window.innerHeight} />
       )}
-
-      <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-20 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
-        {/* <div className="w-full h-4 bg-gray-200 relative mt-2">
-          <div
-            className="absolute top-0 left-0 h-full bg-blue-500"
-            style={{
-              width: `${(correctAnswersCount / questions.length) * 100}%`,
-            }}
-          ></div>
-        </div> */}
-
+      <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-10 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
         <div className="flex flex-col h-full p-6">
           {showCelebration ? (
-            <motion.div
-              className="flex flex-col items-center justify-center h-full text-center p-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              {scorePercentage < 30 ? (
-                <>
-                  <h2 className="text-2xl font-bold text-red-600 mb-2">Keep Practicing!</h2>
-                  <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                  <p className="text-blue-500 font-medium mb-2">Try Again!</p>
-                </>
+        <div className="flex flex-col h-full p-6">
+        {showCelebration && (
+          <motion.div
+            className="flex flex-col items-center justify-center h-full text-center p-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-2 animate-bounce">
+              🎉 Congratulations! 🎉
+            </h2>
+            <p className="text-lg text-gray-700 mb-2">
+              {scorePercentage >= 30
+                ? "Well done on completing this level."
+                : "Try again to improve your score."}
+            </p>
+            <p className="text-blue-500 font-medium mb-4">
+              Current Level Score: {correctAnswersCount}/{questions.length} ({scorePercentage.toFixed(2)}%)
+            </p>
+  
+            {/* Scores Summary */}
+            <div className="w-full max-w-md bg-gray-100 p-4 rounded-lg shadow-md text-left mb-4">
+              <h3 className="text-lg font-semibold text-blue-600 mb-2">Scores Summary</h3>
+              <ul className="space-y-1">
+                <li className="flex justify-between">
+                  <span>Beginner Level</span>
+                  <span>{scoreBeginner} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Intermediate Level</span>
+                  <span>{scoreIntermediate} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Advanced Level</span>
+                  <span>{scoreAdvanced} / 10</span>
+                </li>
+                <li className="flex justify-between font-bold text-green-700 pt-2 border-t border-gray-300">
+                  <span>Total Score</span>
+                  <span>{totalScore} / 30</span>
+                </li>
+                <li className="flex justify-between font-semibold text-purple-700">
+                  <span>Total Percentage</span>
+                  <span>{totalPercentage}%</span>
+                </li>
+              </ul>
+            </div>
+  
+            {/* Buttons */}
+            <div className="mt-4 space-x-4">
+              <button
+                onClick={handleRestartQuiz}
+                className="px-4 py-2 mb-2 bg-blue-500 text-white rounded-lg"
+              >
+                Restart Level
+              </button>
+  
+              {accessGranted ? (
+                scorePercentage >= 30 ? (
+                  <button
+                    onClick={handleNextLevel}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Next Level
+                  </button>
+                ) : null
               ) : (
-                <>
-                  <h2 className="text-3xl font-bold text-blue-700 mb-2">🎉 Congratulations! 🎉</h2>
-                  <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                  <p className="text-blue-500 font-medium mb-2">Great job!</p>
-                </>
+                <div className="flex flex-col items-center space-y-2">
+                  <button
+                    onClick={() => navigate("/loginform")}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Login to Unlock More Levels
+                  </button>
+                </div>
               )}
-              <p className="text-xl font-semibold">
-                Your Score: {correctAnswersCount}/{questions.length} ({scorePercentage.toFixed(2)}%)
-              </p>
-              <div className="mt-6 space-x-4">
-                <button onClick={handleRestartQuiz} className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Restart Quiz</button>
-                <button onClick={handleExit} className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Exit</button>
-              </div>
-            </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </div>
+  
+
           ) : (
             <>
               <div className="mb-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white p-4 rounded-md shadow">
-                <h2 className="text-lg font-semibold">
-                  Question {currentQuestionIndex + 1}: {currentQuestion.question}
-                </h2>
-                <p className="text-sm text-white">Time left: {timer}s</p>
+                <h2 className="text-lg font-semibold">Level: {levels[currentLevelIndex].toUpperCase()}</h2>
+                <h3 className="text-sm">Question {currentQuestionIndex + 1}: {currentQuestion.question}</h3>
+                <p className="text-sm">Time left: {timer}s</p>
               </div>
-
               <div className="space-y-3 flex-1">
                 {currentQuestion.options.map((option, index) => (
                   <motion.button
@@ -294,43 +494,25 @@ const Ds=()=>{
                   </motion.button>
                 ))}
               </div>
-
               {showCorrectAnswer && (
-                <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
-                  Correct Answer:{" "}
-                  <span className="font-semibold">{currentQuestion.correctAnswer}</span>
+                <div className="p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
+                  Correct Answer: <span className="font-semibold">{currentQuestion.correctAnswer}</span>
                 </div>
               )}
-
-              <div className="flex justify-between items-center mt-6">
+              <div className="flex justify-between mt-4">
                 <button
-                  onClick={handlePrevious}
+                  onClick={handlePreviousQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
                   disabled={currentQuestionIndex === 0}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                    currentQuestionIndex === 0
-                      ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                      : "bg-gray-200 hover:bg-gray-300 text-gray-800"
-                  }`}
                 >
                   Previous
                 </button>
-
                 <button
-                  onClick={() => setShowCorrectAnswer(true)}
-                  className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition"
+                  onClick={handleNextQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+                  disabled={currentQuestionIndex === questions.length - 1}
                 >
-                  View Answer
-                </button>
-
-                <button
-                  onClick={handleNext}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                    currentQuestionIndex === questions.length - 1
-                      ? "bg-green-500 text-white hover:bg-green-600"
-                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  }`}
-                >
-                  {currentQuestionIndex === questions.length - 1 ? "Finish" : "Next"}
+                  Next
                 </button>
               </div>
             </>
@@ -338,6 +520,31 @@ const Ds=()=>{
         </div>
       </div>
     </div>
+    
+      {/* Popup card for completion */}
+      {showCompletionPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm text-center mx-4">
+            <div className="text-5xl mb-4 animate-bounce">🎉</div>
+            <h2 className="text-2xl font-bold mb-2 text-blue-700">
+              You've completed all levels!
+            </h2>
+            <p className="mb-6 text-gray-700">
+              Congratulations on finishing the quiz! 🎊
+            </p>
+            <button
+              onClick={() => {
+                setShowCompletionPopup(false);
+                navigate("/");
+              }}
+              className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 text-white px-6 py-2 rounded-lg font-semibold transition"
+            >
+              Go to Home
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

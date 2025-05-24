@@ -1,395 +1,293 @@
-// import NavBar from "../Navbar"
-// import SubNavbar from "../SubNavbar";
-// import React, { useState } from "react";
-
-// const Java=()=>{
-//     const questions = [
-     
-//           {
-//             "question": "Which of the following is not a Java feature?",
-//             "options": ["Object-oriented", "Use of pointers", "Platform independent", "Robust"],
-//             "correctAnswer": "Use of pointers"
-//           },
-//           {
-//             "question": "Which data type is used to store decimal numbers in Java?",
-//             "options": ["int", "float", "boolean", "char"],
-//             "correctAnswer": "float"
-//           },
-//           {
-//             "question": "Which of the following is used to define a constant in Java?",
-//             "options": ["const", "constant", "final", "static"],
-//             "correctAnswer": "final"
-//           },
-//           {
-//             "question": "Which method is used to start the execution of a Java program?",
-//             "options": ["main()", "start()", "run()", "execute()"],
-//             "correctAnswer": "main()"
-//           },
-//           {
-//             "question": "Which keyword is used to inherit a class in Java?",
-//             "options": ["extends", "implements", "inherits", "super"],
-//             "correctAnswer": "extends"
-//           },
-//           {
-//             "question": "Which of the following is a superclass of every class in Java?",
-//             "options": ["Object", "Class", "Main", "Superclass"],
-//             "correctAnswer": "Object"
-//           },
-//           {
-//             "question": "Which operator is used to compare two values in Java?",
-//             "options": ["=", "==", "equals", "!="],
-//             "correctAnswer": "=="
-//           },
-//           {
-//             "question": "What is the size of an int data type in Java?",
-//             "options": ["8 bytes", "4 bytes", "2 bytes", "Depends on the platform"],
-//             "correctAnswer": "4 bytes"
-//           },
-//           {
-//             "question": "Which of these is a valid declaration of a package in Java?",
-//             "options": ["package mypackage;", "Package mypackage;", "package: mypackage;", "pack mypackage;"],
-//             "correctAnswer": "package mypackage;"
-//           },
-//           {
-//             "question": "What is the default value of a local variable in Java?",
-//             "options": ["0", "null", "Garbage value", "No default value"],
-//             "correctAnswer": "No default value"
-//           },
-//           {
-//             "question": "Which of the following is not a Java keyword?",
-//             "options": ["static", "try", "virtual", "final"],
-//             "correctAnswer": "virtual"
-//           },
-//           {
-//             "question": "What is the return type of the hashCode() method in Java?",
-//             "options": ["int", "float", "double", "long"],
-//             "correctAnswer": "int"
-//           },
-//           {
-//             "question": "Which keyword is used to handle exceptions in Java?",
-//             "options": ["try", "catch", "throw", "All of the above"],
-//             "correctAnswer": "All of the above"
-//           },
-//           {
-//             "question": "Which of the following statements is true about constructors in Java?",
-//             "options": [
-//               "Constructors must have the same name as the class",
-//               "Constructors can be called directly like regular methods",
-//               "Constructors have a return type",
-//               "Constructors cannot take parameters"
-//             ],
-//             "correctAnswer": "Constructors must have the same name as the class"
-//           },
-//           {
-//             "question": "What is the purpose of the 'super' keyword in Java?",
-//             "options": [
-//               "To create a superclass",
-//               "To call a superclass constructor or method",
-//               "To define a subclass",
-//               "To end a program"
-//             ],
-//             "correctAnswer": "To call a superclass constructor or method"
-//           },
-//           {
-//             "question": "Which of the following can be used to generate an infinite loop in Java?",
-//             "options": ["for(;;)", "while(true)", "do-while(true)", "All of the above"],
-//             "correctAnswer": "All of the above"
-//           },
-//           {
-//             "question": "What is the use of the 'this' keyword in Java?",
-//             "options": [
-//               "To refer to the current object",
-//               "To refer to a parent class",
-//               "To call a static method",
-//               "To refer to an external file"
-//             ],
-//             "correctAnswer": "To refer to the current object"
-//           },
-//           {
-//             "question": "What is the purpose of the 'finalize()' method in Java?",
-//             "options": [
-//               "To define a final method",
-//               "To clean up resources before an object is destroyed",
-//               "To terminate a program",
-//               "To initialize an object"
-//             ],
-//             "correctAnswer": "To clean up resources before an object is destroyed"
-//           },
-//           {
-//             "question": "Which of the following is not a wrapper class in Java?",
-//             "options": ["Integer", "Character", "Double", "String"],
-//             "correctAnswer": "String"
-//           },
-//           {
-//             "question": "Which of these allows the creation of a thread in Java?",
-//             "options": ["Runnable interface", "Thread class", "Both", "None of the above"],
-//             "correctAnswer": "Both"
-//           }
-       
-      
-//       ];
-    
-//       const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-//       const [selectedOption, setSelectedOption] = useState(null);
-//       const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-    
-//       const currentQuestion = questions[currentQuestionIndex];
-    
-//       const handleOptionSelect = (option) => {
-//         setSelectedOption(option);
-//         setShowCorrectAnswer(false);
-//       };
-    
-//       const handleNext = () => {
-//         if (currentQuestionIndex < questions.length - 1) {
-//           setCurrentQuestionIndex(currentQuestionIndex + 1);
-//           setSelectedOption(null);
-//           setShowCorrectAnswer(false);
-//         }
-//       };
-    
-//       const handlePrevious = () => {
-//         if (currentQuestionIndex > 0) {
-//           setCurrentQuestionIndex(currentQuestionIndex - 1);
-//           setSelectedOption(null);
-//           setShowCorrectAnswer(false);
-//         }
-//       };
-    
-//       const progressPercentage =
-//         ((currentQuestionIndex + 1) / questions.length) * 100;
-    
-// return(
-//     <>
-   
-//     <div className="h-[100dvh] bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4">
-//     <SubNavbar/>
-//  <div className="w-[50dvw] h-[60dvh] mt-10 p-6 bg-white shadow-lg rounded-lg border border-gray-200">
-//       {/* Progress Bar */}
-//       <div className="relative w-full bg-gray-200 rounded-full h-4 mb-6">
-//         <div
-//           className="absolute top-0 left-0 h-4 bg-blue-500 rounded-full"
-//           style={{ width: `${progressPercentage}%` }}
-//         ></div>
-//       </div>
-//       {/* Question */}
-//       <h2 className="text-lg font-semibold text-gray-800 mb-4">
-//         Question {currentQuestionIndex + 1}: {currentQuestion.question}
-//       </h2>
-//       {/* Options */}
-//       <div className="space-y-4">
-//         {currentQuestion.options.map((option, index) => (
-//           <button
-//             key={index}
-//             onClick={() => handleOptionSelect(option)}
-//             className={`w-full px-4 py-2 text-left border rounded-lg hover:bg-gray-100 transition-colors ${
-//               selectedOption === option
-//                 ? selectedOption === currentQuestion.correctAnswer
-//                   ? "border-green-500 bg-green-50"
-//                   : "border-red-500 bg-red-50"
-//                 : ""
-//             }`}
-//           >
-//             {option}
-//           </button>
-//         ))}
-//       </div>
-//       {/* Correct Answer */}
-//       {showCorrectAnswer && (
-//         <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-500 text-green-700">
-//           <p>
-//             Correct Answer:{" "}
-//             <span className="font-bold">{currentQuestion.correctAnswer}</span>
-//           </p>
-
-//         </div>
-//       )}
-//       {/* Navigation Buttons */}
-//       <div className="flex justify-between items-center mt-6">
-//         <button
-//           onClick={handlePrevious}
-//           disabled={currentQuestionIndex === 0}
-//           className={`px-4 py-2 rounded-lg ${
-//             currentQuestionIndex === 0
-//               ? "bg-gray-300 text-gray-600"
-//               : "bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
-//           }`}
-//         >
-//           Previous
-//         </button>
-//         <button
-//           onClick={() => setShowCorrectAnswer(true)}
-//           className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-//         >
-//           View Correct Answer
-//         </button>
-//         <button
-//           onClick={handleNext}
-//           disabled={currentQuestionIndex === questions.length - 1}
-//           className={`px-4 py-2 rounded-lg ${
-//             currentQuestionIndex === questions.length - 1
-//               ? "bg-gray-300 text-gray-600"
-//               : "bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
-//           }`}
-//         >
-//           Next
-//         </button>
-//       </div>
-//     </div>
-//     </div>    
-//     </>
-// )}
-//   export default  Java;
-// src/pages/Java.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import { Howl } from "howler";
 
 const Java = () => {
   const navigate = useNavigate();
-  const questions = [
-    {
-      question: "Which of the following is a valid declaration of a Java variable?",
-      options: ["int 1x=10;", "int x=10;", "float x=10.0;", "String x=10;"],
-      correctAnswer: "int x=10;"
-    },
-    {
-      question: "Which method is the entry point of a Java program?",
-      options: ["start()", "main()", "run()", "init()"],
-      correctAnswer: "main()"
-    },
-    {
-      question: "Which keyword is used to inherit a class in Java?",
-      options: ["this", "super", "extends", "implements"],
-      correctAnswer: "extends"
-    },
-    {
-      question: "Which of the following is not a Java primitive type?",
-      options: ["int", "float", "String", "char"],
-      correctAnswer: "String"
-    },
-    {
-      question: "Which exception is thrown when dividing by zero in Java?",
-      options: ["NullPointerException", "IOException", "ArithmeticException", "NumberFormatException"],
-      correctAnswer: "ArithmeticException"
-    },
-    {
-      question: "Which of these is not a Java access modifier?",
-      options: ["public", "protected", "internal", "private"],
-      correctAnswer: "internal"
-    },
-    {
-      question: "Which keyword is used to create a subclass in Java?",
-      options: ["inherits", "extends", "implements", "super"],
-      correctAnswer: "extends"
-    },
-    {
-      question: "What is the size of an int in Java?",
-      options: ["2 bytes", "4 bytes", "8 bytes", "Depends on the system"],
-      correctAnswer: "4 bytes"
-    },
-    {
-      question: "Which keyword is used to prevent inheritance?",
-      options: ["final", "static", "private", "const"],
-      correctAnswer: "final"
-    },
-    {
-      question: "What is the default value of a boolean variable in Java?",
-      options: ["true", "false", "0", "null"],
-      correctAnswer: "false"
-    },
-    {
-      question: "Which collection class allows you to grow or shrink its size and provides indexed access to its elements?",
-      options: ["HashSet", "ArrayList", "TreeMap", "HashMap"],
-      correctAnswer: "ArrayList"
-    },
-    {
-      question: "Which of the following is used to handle exceptions in Java?",
-      options: ["try-catch", "if-else", "for-loop", "switch"],
-      correctAnswer: "try-catch"
-    },
-    {
-      question: "Which package contains the Scanner class?",
-      options: ["java.io", "java.util", "java.net", "java.awt"],
-      correctAnswer: "java.util"
-    },
-    {
-      question: "What is the superclass of all classes in Java?",
-      options: ["Object", "Class", "Superclass", "Base"],
-      correctAnswer: "Object"
-    },
-    {
-      question: "Which keyword is used to define an interface in Java?",
-      options: ["interface", "implements", "abstract", "class"],
-      correctAnswer: "interface"
-    },
-    {
-      question: "What does JVM stand for?",
-      options: ["Java Virtual Machine", "Java Variable Method", "Java Verified Method", "Joint Virtual Memory"],
-      correctAnswer: "Java Virtual Machine"
-    },
-    {
-      question: "Which Java keyword is used to refer to the current object?",
-      options: ["this", "self", "current", "super"],
-      correctAnswer: "this"
-    },
-    {
-      question: "Which of these classes are immutable in Java?",
-      options: ["String", "StringBuilder", "StringBuffer", "All of the above"],
-      correctAnswer: "String"
-    },
-    {
-      question: "Which operator is used to compare two values in Java?",
-      options: ["=", "==", "===", "!="],
-      correctAnswer: "=="
-    },
-    {
-      question: "Which loop is guaranteed to execute at least once?",
-      options: ["for", "while", "do-while", "None"],
-      correctAnswer: "do-while"
-    }
-  ];
-
+  const allLevels = {
+    beginner: [
+      {
+        question: "Which keyword is used to define a class in Java?",
+        options: ["class", "struct", "define", "object"],
+        correctAnswer: "class",
+      },
+      {
+        question: "What is the size of an int in Java?",
+        options: ["2 bytes", "4 bytes", "8 bytes", "Depends on system"],
+        correctAnswer: "4 bytes",
+      },
+      {
+        question: "Which method is the entry point of a Java program?",
+        options: ["start()", "init()", "main()", "run()"],
+        correctAnswer: "main()",
+      },
+      {
+        question: "Which of these is not a primitive data type in Java?",
+        options: ["int", "float", "boolean", "String"],
+        correctAnswer: "String",
+      },
+      {
+        question: "Which keyword is used to create an object in Java?",
+        options: ["alloc", "malloc", "new", "create"],
+        correctAnswer: "new",
+      },
+      {
+        question: "What is the file extension for a compiled Java file?",
+        options: [".class", ".java", ".exe", ".obj"],
+        correctAnswer: ".class",
+      },
+      {
+        question: "Which of the following is a valid Java identifier?",
+        options: ["123value", "_value", "void", "class"],
+        correctAnswer: "_value",
+      },
+      {
+        question: "Which operator is used for comparison in Java?",
+        options: ["=", "==", ":", "::"],
+        correctAnswer: "==",
+      },
+      {
+        question: "What will `System.out.println(3 + 4);` output?",
+        options: ["34", "7", "3+4", "Error"],
+        correctAnswer: "7",
+      },
+      {
+        question: "Which of the following is used to comment a single line in Java?",
+        options: ["//", "/* */", "#", "<!-- -->"],
+        correctAnswer: "//",
+      },
+    ],
+    intermediate: [
+      {
+        question: "Which keyword is used for inheritance in Java?",
+        options: ["inherits", "extends", "implements", "super"],
+        correctAnswer: "extends",
+      },
+      {
+        question: "Which interface must be implemented to create a thread in Java?",
+        options: ["Runnable", "Threadable", "Thread", "Startable"],
+        correctAnswer: "Runnable",
+      },
+      {
+        question: "Which exception is thrown when a file is not found?",
+        options: ["IOException", "FileNotFoundException", "EOFException", "FileException"],
+        correctAnswer: "FileNotFoundException",
+      },
+      {
+        question: "What is method overloading in Java?",
+        options: [
+          "Same method name with different parameters",
+          "Same method in superclass and subclass",
+          "Method with no return type",
+          "Two methods with same body"
+        ],
+        correctAnswer: "Same method name with different parameters",
+      },
+      {
+        question: "Which access modifier makes members visible within the same package?",
+        options: ["public", "protected", "private", "default"],
+        correctAnswer: "default",
+      },
+      {
+        question: "Which collection class stores elements in key-value pairs?",
+        options: ["ArrayList", "HashMap", "HashSet", "Vector"],
+        correctAnswer: "HashMap",
+      },
+      {
+        question: "What is the parent class of all classes in Java?",
+        options: ["Object", "Class", "Super", "Base"],
+        correctAnswer: "Object",
+      },
+      {
+        question: "Which keyword is used to prevent method overriding?",
+        options: ["static", "final", "const", "private"],
+        correctAnswer: "final",
+      },
+      {
+        question: "Which statement is used to handle exceptions?",
+        options: ["try-catch", "catch-throw", "if-else", "loop"],
+        correctAnswer: "try-catch",
+      },
+      {
+        question: "Which of the following allows multiple inheritance in Java?",
+        options: ["Class", "Interface", "Object", "Constructor"],
+        correctAnswer: "Interface",
+      },
+    ],
+    advanced: [
+      {
+        question: "Which keyword is used to define an abstract class in Java?",
+        options: ["interface", "abstract", "virtual", "base"],
+        correctAnswer: "abstract",
+      },
+      {
+        question: "What is the purpose of the 'transient' keyword in Java?",
+        options: [
+          "Make method synchronized",
+          "Exclude variable from serialization",
+          "Create temporary variable",
+          "Allow multi-threading"
+        ],
+        correctAnswer: "Exclude variable from serialization",
+      },
+      {
+        question: "Which of the following is not a feature of Java?",
+        options: ["Platform-independent", "Object-oriented", "Pointer support", "Automatic memory management"],
+        correctAnswer: "Pointer support",
+      },
+      {
+        question: "Which method is used to start a thread in Java?",
+        options: ["run()", "start()", "begin()", "init()"],
+        correctAnswer: "start()",
+      },
+      {
+        question: "What is the output of: `System.out.println(10/0);`?",
+        options: ["Infinity", "0", "Exception", "Compile error"],
+        correctAnswer: "Exception",
+      },
+      {
+        question: "Which package contains the Scanner class?",
+        options: ["java.io", "java.util", "java.lang", "java.awt"],
+        correctAnswer: "java.util",
+      },
+      {
+        question: "What does JVM stand for?",
+        options: ["Java Virtual Method", "Java Variable Machine", "Java Virtual Machine", "Joint Virtual Module"],
+        correctAnswer: "Java Virtual Machine",
+      },
+      {
+        question: "What is the use of 'super' keyword in Java?",
+        options: [
+          "Access parent class methods",
+          "Call constructor",
+          "Access superclass fields",
+          "All of the above"
+        ],
+        correctAnswer: "All of the above",
+      },
+      {
+        question: "Which of the following is true about garbage collection?",
+        options: [
+          "It can be forced explicitly",
+          "It reclaims memory used by unreachable objects",
+          "It is done manually by the programmer",
+          "It deletes all objects"
+        ],
+        correctAnswer: "It reclaims memory used by unreachable objects",
+      },
+      {
+        question: "What is the result of 'null instanceof Object' in Java?",
+        options: ["true", "false", "null", "Exception"],
+        correctAnswer: "false",
+      },
+    ]
+  };
+  
+  
+    const levels = Object.keys(allLevels);
+    const scoreBeginner = parseInt(sessionStorage.getItem("score_beginner"), 10) || 0;
+    const scoreIntermediate = parseInt(sessionStorage.getItem("score_intermediate"), 10) || 0;
+    const scoreAdvanced = parseInt(sessionStorage.getItem("score_advanced"), 10) || 0;
+    const totalScore = scoreBeginner + scoreIntermediate + scoreAdvanced;
+    const totalPercentage = ((totalScore / 30) * 100).toFixed(2);
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
+  const [questions, setQuestions] = useState(allLevels[levels[0]]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
   const [timer, setTimer] = useState(20);
-  const [score, setScore] = useState(localStorage.getItem("javaBestScore") || 0);
-
-  const CORRECT_SOUND = new Howl({ src: ["/sounds/correct.mp3"] });
-  const WRONG_SOUND = new Howl({ src: ["/sounds/wrong.mp3"] });
-
+  const [levelCompleted, setLevelCompleted] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [showCompletionPopup, setShowCompletionPopup] = useState(false);
   const currentQuestion = questions[currentQuestionIndex];
-
+  const scorePercentage = (correctAnswersCount / questions.length) * 100;
   useEffect(() => {
-    const timerInterval = setInterval(() => {
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    const beginnerScore = parseInt(localStorage.getItem("score_beginner")) || 0;
+  
+    if (token) {
+      setAccessGranted(true);
+  
+      // If beginner is completed, start from the next level
+      if (beginnerScore >= 3) {
+        const nextLevelIndex = 1; // Assuming 'intermediate' is at index 1
+        setCurrentLevelIndex(nextLevelIndex);
+        setQuestions(allLevels[levels[nextLevelIndex]]);
+      } else {
+        setCurrentLevelIndex(0);
+        setQuestions(allLevels["beginner"]);
+      }
+  
+    } else {
+      setAccessGranted(false);
+      setCurrentLevelIndex(0);
+      setQuestions(allLevels["beginner"]);
+    }
+  }, []);
+  
+  // Load level data from localStorage on level change
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    const savedScore = parseInt(sessionStorage.getItem(levelKey)) || 0;
+  
+    if (savedScore >= 3) {
+      setCorrectAnswersCount(savedScore);
+      setShowCelebration(true);
+      setLevelCompleted(true);
+      setTimer(0); // stop timer
+    } else {
+      setCorrectAnswersCount(0);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    }
+  
+    setQuestions(allLevels[levels[currentLevelIndex]]);
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setShowCorrectAnswer(false);
+  }, [currentLevelIndex]);
+  
+  //  Save score and totalScore on update
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    sessionStorage.setItem(levelKey, correctAnswersCount);
+  
+    const total = levels.reduce((acc, level) => {
+      const val = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+      return acc + val;
+    }, 0);
+  
+    sessionStorage.setItem("totalScore", total);
+  }, [correctAnswersCount, currentLevelIndex]);
+  
+  // Timer countdown unless level is completed
+  useEffect(() => {
+    if (showCelebration) return;
+  
+    const interval = setInterval(() => {
       if (timer > 0) {
-        setTimer(timer - 1);
+        setTimer((prev) => prev - 1);
       } else {
         handleOptionSelect(null);
       }
     }, 1000);
-    return () => clearInterval(timerInterval);
-  }, [timer]);
-
-  useEffect(() => {
-    localStorage.setItem("javaScore", correctAnswersCount);
-  }, [correctAnswersCount]);
-
+  
+    return () => clearInterval(interval);
+  }, [timer, showCelebration]);
+  
+  //  Select answer
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     if (option === currentQuestion.correctAnswer) {
       setCorrectAnswersCount((prev) => prev + 1);
-      CORRECT_SOUND.play();
-    } else {
-      WRONG_SOUND.play();
     }
     setShowCorrectAnswer(true);
+  
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prev) => prev + 1);
@@ -398,24 +296,51 @@ const Java = () => {
         setTimer(20);
       } else {
         setShowCelebration(true);
+        setLevelCompleted(true);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }, 1000);
   };
-
-  const handleNext = () => {
+  
+  const handleNextLevel = () => {
+    const nextLevel = currentLevelIndex + 1;
+    if (nextLevel < levels.length) {
+      setCurrentLevelIndex(nextLevel);
+      setQuestions(allLevels[levels[nextLevel]]);
+      setCurrentQuestionIndex(0);
+      setSelectedOption(null);
+      setCorrectAnswersCount(0);
+      setShowCorrectAnswer(false);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    } else {
+      // Instead of alert, show popup card
+      setShowCompletionPopup(true);
+    }
+  };
+  
+  //  Restart current level
+  const handleRestartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setCorrectAnswersCount(0);
+    setShowCelebration(false);
+    setLevelCompleted(false);
+    setTimer(20);
+  };
+  
+  //  Navigate to next/previous question
+  const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
       setSelectedOption(null);
       setShowCorrectAnswer(false);
       setTimer(20);
-    } else {
-      setShowCelebration(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
-
-  const handlePrevious = () => {
+  
+  const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1);
       setSelectedOption(null);
@@ -423,84 +348,148 @@ const Java = () => {
       setTimer(20);
     }
   };
-
-  const handleRestartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setSelectedOption(null);
-    setCorrectAnswersCount(0);
-    setShowCelebration(false);
-    setTimer(20);
-  };
-
-  const handleExit = () => {
-    navigate("/");
-  };
-
-  const scorePercentage = (correctAnswersCount / questions.length) * 100;
-
+  
   return (
-    <div className="h-[100dvh] bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      <SubNavbar />
+    <>
+
+    <div className="h-[100dvh]  bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <SubNavbar/>
+      <div className="flex justify-center mt-32 gap-4">
+  {levels.map((level, index) => {
+    const levelScore = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+    const isBeginnerCompleted = parseInt(sessionStorage.getItem("score_beginner")) >= 3;
+
+    return (
+      <button
+        key={level}
+        className={`px-4 py-2 rounded  ${
+          currentLevelIndex === index
+            ? "bg-blue-600 text-white"
+            : levelScore >= 3
+            ? "bg-green-500 text-white"
+            : "bg-gray-300 text-black"
+        }`}
+        onClick={() => {
+          if (index === 0) {
+            // Beginner level - always accessible
+            setCurrentLevelIndex(index);
+          } else if (index === 1 && isBeginnerCompleted) {
+            // Intermediate level - only if beginner completed
+            setCurrentLevelIndex(index);
+          } else if (index === 2 && isBeginnerCompleted && levelScore >= 3) {
+            // Advanced level - only if intermediate is completed
+            const intermediateScore = parseInt(sessionStorage.getItem("score_intermediate")) || 0;
+            if (intermediateScore >= 3) {
+              setCurrentLevelIndex(index);
+            } else {
+              alert("Please complete Intermediate level first!");
+            }
+          } else {
+            alert("Please complete the Beginner level first!");
+          }
+        }}
+      >
+        {level.charAt(0).toUpperCase() + level.slice(1)}
+        {levelScore >= 3 && " ✅"}
+      </button>
+    );
+  })}
+</div>
+
       {showCelebration && scorePercentage >= 30 && (
         <Confetti width={window.innerWidth} height={window.innerHeight} />
       )}
-      <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-20 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
-       
+      <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-10 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
         <div className="flex flex-col h-full p-6">
           {showCelebration ? (
-            <motion.div
-              className="flex flex-col items-center justify-center h-full text-center p-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              {scorePercentage < 30 ? (
-                <>
-                  <h2 className="text-2xl md:text-3xl font-bold text-red-600 mb-2">
-                    Keep Practicing!
-                  </h2>
-                  <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                  <p className="text-blue-500 font-medium mb-2">Try Again!</p>
-                </>
+        <div className="flex flex-col h-full p-6">
+        {showCelebration && (
+          <motion.div
+            className="flex flex-col items-center justify-center h-full text-center p-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-2 animate-bounce">
+              🎉 Congratulations! 🎉
+            </h2>
+            <p className="text-lg text-gray-700 mb-2">
+              {scorePercentage >= 30
+                ? "Well done on completing this level."
+                : "Try again to improve your score."}
+            </p>
+            <p className="text-blue-500 font-medium mb-4">
+              Current Level Score: {correctAnswersCount}/{questions.length} ({scorePercentage.toFixed(2)}%)
+            </p>
+  
+            {/* Scores Summary */}
+            <div className="w-full max-w-md bg-gray-100 p-4 rounded-lg shadow-md text-left mb-4">
+              <h3 className="text-lg font-semibold text-blue-600 mb-2">Scores Summary</h3>
+              <ul className="space-y-1">
+                <li className="flex justify-between">
+                  <span>Beginner Level</span>
+                  <span>{scoreBeginner} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Intermediate Level</span>
+                  <span>{scoreIntermediate} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Advanced Level</span>
+                  <span>{scoreAdvanced} / 10</span>
+                </li>
+                <li className="flex justify-between font-bold text-green-700 pt-2 border-t border-gray-300">
+                  <span>Total Score</span>
+                  <span>{totalScore} / 30</span>
+                </li>
+                <li className="flex justify-between font-semibold text-purple-700">
+                  <span>Total Percentage</span>
+                  <span>{totalPercentage}%</span>
+                </li>
+              </ul>
+            </div>
+  
+            {/* Buttons */}
+            <div className="mt-4 space-x-4">
+              <button
+                onClick={handleRestartQuiz}
+                className="px-4 py-2 mb-2 bg-blue-500 text-white rounded-lg"
+              >
+                Restart Level
+              </button>
+  
+              {accessGranted ? (
+                scorePercentage >= 30 ? (
+                  <button
+                    onClick={handleNextLevel}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Next Level
+                  </button>
+                ) : null
               ) : (
-                <>
-                  <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-2">
-                    🎉 Congratulations! 🎉
-                  </h2>
-                  <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                  <p className="text-blue-500 font-medium mb-2">Great job!</p>
-                </>
+                <div className="flex flex-col items-center space-y-2">
+                  <button
+                    onClick={() => navigate("/loginform")}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Login to Unlock More Levels
+                  </button>
+                </div>
               )}
+            </div>
+          </motion.div>
+        )}
+      </div>
+  
 
-              <p className="text-xl font-semibold">
-                Your Score: {correctAnswersCount}/{questions.length} (
-                {scorePercentage.toFixed(2)}%)
-              </p>
-
-              <div className="mt-6 space-x-4">
-                <button
-                  onClick={handleRestartQuiz}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-                >
-                  Restart Quiz
-                </button>
-                <button
-                  onClick={handleExit}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"
-                >
-                  Exit
-                </button>
-              </div>
-            </motion.div>
           ) : (
             <>
               <div className="mb-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white p-4 rounded-md shadow">
-                <h2 className="text-lg font-semibold">
-                  Question {currentQuestionIndex + 1}: {currentQuestion.question}
-                </h2>
-                <p className="text-sm text-white">Time left: {timer}s</p>
+                <h2 className="text-lg font-semibold">Level: {levels[currentLevelIndex].toUpperCase()}</h2>
+                <h3 className="text-sm">Question {currentQuestionIndex + 1}: {currentQuestion.question}</h3>
+                <p className="text-sm">Time left: {timer}s</p>
               </div>
-
               <div className="space-y-3 flex-1">
                 {currentQuestion.options.map((option, index) => (
                   <motion.button
@@ -519,43 +508,25 @@ const Java = () => {
                   </motion.button>
                 ))}
               </div>
-
               {showCorrectAnswer && (
-                <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
-                  Correct Answer:{" "}
-                  <span className="font-semibold">{currentQuestion.correctAnswer}</span>
+                <div className="p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
+                  Correct Answer: <span className="font-semibold">{currentQuestion.correctAnswer}</span>
                 </div>
               )}
-
-              <div className="flex justify-between items-center mt-6">
+              <div className="flex justify-between mt-4">
                 <button
-                  onClick={handlePrevious}
+                  onClick={handlePreviousQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
                   disabled={currentQuestionIndex === 0}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                    currentQuestionIndex === 0
-                      ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                      : "bg-gray-200 hover:bg-gray-300 text-gray-800"
-                  }`}
                 >
                   Previous
                 </button>
-
                 <button
-                  onClick={() => setShowCorrectAnswer(true)}
-                  className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition"
+                  onClick={handleNextQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+                  disabled={currentQuestionIndex === questions.length - 1}
                 >
-                  View Answer
-                </button>
-
-                <button
-                  onClick={handleNext}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                    currentQuestionIndex === questions.length - 1
-                      ? "bg-green-500 text-white hover:bg-green-600"
-                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  }`}
-                >
-                  {currentQuestionIndex === questions.length - 1 ? "Finish" : "Next"}
+                  Next
                 </button>
               </div>
             </>
@@ -563,6 +534,31 @@ const Java = () => {
         </div>
       </div>
     </div>
+    
+      {/* Popup card for completion */}
+      {showCompletionPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm text-center mx-4">
+            <div className="text-5xl mb-4 animate-bounce">🎉</div>
+            <h2 className="text-2xl font-bold mb-2 text-blue-700">
+              You've completed all levels!
+            </h2>
+            <p className="mb-6 text-gray-700">
+              Congratulations on finishing the quiz! 🎊
+            </p>
+            <button
+              onClick={() => {
+                setShowCompletionPopup(false);
+                navigate("/");
+              }}
+              className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 text-white px-6 py-2 rounded-lg font-semibold transition"
+            >
+              Go to Home
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

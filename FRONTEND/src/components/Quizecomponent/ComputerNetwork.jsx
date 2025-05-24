@@ -3,320 +3,597 @@ import { useNavigate } from "react-router-dom";
 import SubNavbar from "../SubNavbar";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import { Howl } from "howler";
-const  Cn=()=>{
-    const questions = [
-    
-            {
-              question: "Which device is used to connect different networks together?",
-              options: ["Switch", "Router", "Hub", "Repeater"],
-              correctAnswer: "Router"
-            },
-            {
-              question: "Which layer of the OSI model is responsible for end-to-end communication?",
-              options: ["Transport", "Network", "Data Link", "Session"],
-              correctAnswer: "Transport"
-            },
-            {
-              question: "What does IP stand for?",
-              options: ["Internet Protocol", "Internal Process", "Internet Process", "Information Protocol"],
-              correctAnswer: "Internet Protocol"
-            },
-            {
-              question: "Which protocol is used to send emails?",
-              options: ["SMTP", "FTP", "HTTP", "SNMP"],
-              correctAnswer: "SMTP"
-            },
-            {
-              question: "Which of the following is not a guided transmission medium?",
-              options: ["Twisted Pair", "Coaxial Cable", "Fiber Optic", "Radio Waves"],
-              correctAnswer: "Radio Waves"
-            },
-            {
-              question: "What is the default port number of HTTP?",
-              options: ["20", "21", "80", "110"],
-              correctAnswer: "80"
-            },
-            {
-              question: "Which topology requires a central controller or hub?",
-              options: ["Bus", "Ring", "Star", "Mesh"],
-              correctAnswer: "Star"
-            },
-            {
-              question: "What does DNS stand for?",
-              options: ["Domain Network Service", "Digital Network Server", "Domain Name System", "Data Number Service"],
-              correctAnswer: "Domain Name System"
-            },
-            {
-              question: "Which protocol is used to retrieve emails from a server?",
-              options: ["POP3", "SMTP", "HTTP", "SSH"],
-              correctAnswer: "POP3"
-            },
-            {
-              question: "Which of the following uses packet switching?",
-              options: ["Telephone Network", "Circuit Switching", "Internet", "Cable TV"],
-              correctAnswer: "Internet"
-            },
-            {
-              question: "Which of these is a class C IP address?",
-              options: ["10.0.0.1", "172.16.0.1", "192.168.1.1", "224.0.0.1"],
-              correctAnswer: "192.168.1.1"
-            },
-            {
-              question: "Which layer is responsible for logical addressing?",
-              options: ["Data Link", "Transport", "Network", "Physical"],
-              correctAnswer: "Network"
-            },
-            {
-              question: "What is the full form of LAN?",
-              options: ["Local Area Network", "Long Area Network", "Large Access Network", "Lightweight Access Node"],
-              correctAnswer: "Local Area Network"
-            },
-            {
-              question: "Which protocol is used for secure communication over the Internet?",
-              options: ["HTTP", "FTP", "HTTPS", "Telnet"],
-              correctAnswer: "HTTPS"
-            },
-            {
-              question: "Which of the following devices operates at the Data Link layer?",
-              options: ["Router", "Switch", "Gateway", "Repeater"],
-              correctAnswer: "Switch"
-            },
-            {
-              question: "Which addressing method is used in Ethernet?",
-              options: ["IP Address", "Port Address", "MAC Address", "Logical Address"],
-              correctAnswer: "MAC Address"
-            },
-            {
-              question: "Which of these protocols is connection-oriented?",
-              options: ["UDP", "TCP", "ICMP", "IP"],
-              correctAnswer: "TCP"
-            },
-            {
-              question: "The maximum length of a CAT5 cable is approximately:",
-              options: ["50 meters", "100 meters", "200 meters", "500 meters"],
-              correctAnswer: "100 meters"
-            },
-            {
-              question: "Which device regenerates signals over the same network before sending?",
-              options: ["Router", "Switch", "Repeater", "Modem"],
-              correctAnswer: "Repeater"
-            },
-            {
-              question: "IPv6 addresses are how many bits long?",
-              options: ["32", "64", "128", "256"],
-              correctAnswer: "128"
+
+const Cn=() => {
+  const navigate = useNavigate();
+  const allLevels = {
+    beginner: [
+      {
+        question: "What does TCP stand for?",
+        options: ["Transmission Control Protocol", "Transfer Control Protocol", "Transport Control Protocol", "Transport Communication Protocol"],
+        correctAnswer: "Transmission Control Protocol",
+      },
+      {
+        question: "Which device is used to connect different networks?",
+        options: ["Switch", "Router", "Hub", "Repeater"],
+        correctAnswer: "Router",
+      },
+      {
+        question: "What is the primary purpose of an IP address?",
+        options: ["Identify a device on a network", "Control data flow", "Encrypt data", "Manage network traffic"],
+        correctAnswer: "Identify a device on a network",
+      },
+      {
+        question: "Which protocol is used to send emails?",
+        options: ["HTTP", "FTP", "SMTP", "DNS"],
+        correctAnswer: "SMTP",
+      },
+      {
+        question: "What does LAN stand for?",
+        options: ["Large Area Network", "Local Area Network", "Long Area Network", "Light Area Network"],
+        correctAnswer: "Local Area Network",
+      },
+      {
+        question: "Which layer of the OSI model handles error detection?",
+        options: ["Physical", "Data Link", "Network", "Transport"],
+        correctAnswer: "Data Link",
+      },
+      {
+        question: "What is a MAC address?",
+        options: ["Logical address", "Physical address", "IP address", "Subnet mask"],
+        correctAnswer: "Physical address",
+      },
+      {
+        question: "Which protocol is used for secure communication over the internet?",
+        options: ["HTTP", "HTTPS", "FTP", "Telnet"],
+        correctAnswer: "HTTPS",
+      },
+      {
+        question: "What is the port number for HTTP?",
+        options: ["21", "80", "25", "110"],
+        correctAnswer: "80",
+      },
+      {
+        question: "What does DNS stand for?",
+        options: ["Domain Name System", "Domain Number System", "Data Network Service", "Distributed Name Service"],
+        correctAnswer: "Domain Name System",
+      },
+    ],
+    intermediate: [
+      {
+        question: "What is the function of the Transport layer in the OSI model?",
+        options: [
+          "Routing packets",
+          "Data encryption",
+          "End-to-end communication and flow control",
+          "Physical transmission of data"
+        ],
+        correctAnswer: "End-to-end communication and flow control",
+      },
+      {
+        question: "Which protocol provides connection-oriented communication?",
+        options: ["UDP", "TCP", "IP", "ICMP"],
+        correctAnswer: "TCP",
+      },
+      {
+        question: "What is the purpose of the subnet mask?",
+        options: [
+          "Identify network and host portions of IP address",
+          "Encrypt data",
+          "Control packet size",
+          "Assign IP addresses"
+        ],
+        correctAnswer: "Identify network and host portions of IP address",
+      },
+      {
+        question: "Which protocol is used for transferring files over the internet?",
+        options: ["FTP", "SMTP", "HTTP", "SNMP"],
+        correctAnswer: "FTP",
+      },
+      {
+        question: "What is ARP used for?",
+        options: [
+          "Resolve IP address to MAC address",
+          "Translate domain names",
+          "Assign IP addresses",
+          "Monitor network traffic"
+        ],
+        correctAnswer: "Resolve IP address to MAC address",
+      },
+      {
+        question: "Which protocol is used by routers to exchange routing information?",
+        options: ["DNS", "ICMP", "RIP", "FTP"],
+        correctAnswer: "RIP",
+      },
+      {
+        question: "What is a characteristic of UDP?",
+        options: [
+          "Connection-oriented",
+          "Reliable delivery",
+          "Unreliable and connectionless",
+          "Guaranteed delivery"
+        ],
+        correctAnswer: "Unreliable and connectionless",
+      },
+      {
+        question: "What is the maximum size of a standard Ethernet frame?",
+        options: ["1500 bytes", "512 bytes", "64 bytes", "1024 bytes"],
+        correctAnswer: "1500 bytes",
+      },
+      {
+        question: "What does ICMP stand for?",
+        options: ["Internet Control Message Protocol", "Internet Communication Management Protocol", "Internal Control Message Protocol", "Internet Connection Management Protocol"],
+        correctAnswer: "Internet Control Message Protocol",
+      },
+      {
+        question: "Which of the following is NOT a routing protocol?",
+        options: ["OSPF", "BGP", "SMTP", "EIGRP"],
+        correctAnswer: "SMTP",
+      },
+    ],
+    advanced: [
+      {
+        question: "What is the purpose of the three-way handshake in TCP?",
+        options: [
+          "To establish a reliable connection",
+          "To encrypt data",
+          "To close the connection",
+          "To detect errors"
+        ],
+        correctAnswer: "To establish a reliable connection",
+      },
+      {
+        question: "Which layer of the OSI model is responsible for data compression and encryption?",
+        options: ["Presentation layer", "Session layer", "Application layer", "Network layer"],
+        correctAnswer: "Presentation layer",
+      },
+      {
+        question: "What is NAT and why is it used?",
+        options: [
+          "Network Address Translation; to map private IP addresses to a public IP",
+          "Network Allocation Table; to assign IP addresses",
+          "Network Access Transmission; for data transfer",
+          "None of the above"
+        ],
+        correctAnswer: "Network Address Translation; to map private IP addresses to a public IP",
+      },
+      {
+        question: "What is the main purpose of DHCP?",
+        options: [
+          "Assign IP addresses dynamically",
+          "Encrypt network data",
+          "Resolve domain names",
+          "Route packets between networks"
+        ],
+        correctAnswer: "Assign IP addresses dynamically",
+      },
+      {
+        question: "Which protocol is used to remotely manage network devices securely?",
+        options: ["Telnet", "SSH", "FTP", "HTTP"],
+        correctAnswer: "SSH",
+      },
+      {
+        question: "What is the difference between a hub and a switch?",
+        options: [
+          "Hub broadcasts data; switch sends data only to destination",
+          "Hub sends data only to destination; switch broadcasts data",
+          "Both perform the same function",
+          "Hub is faster than switch"
+        ],
+        correctAnswer: "Hub broadcasts data; switch sends data only to destination",
+      },
+      {
+        question: "What does the term 'collision domain' mean?",
+        options: [
+          "Network segment where data packets can collide",
+          "Area where IP addresses conflict",
+          "Range of wireless network",
+          "Region covered by a router"
+        ],
+        correctAnswer: "Network segment where data packets can collide",
+      },
+      {
+        question: "What is the maximum transmission unit (MTU) in networking?",
+        options: [
+          "Maximum packet size that can be transmitted",
+          "Minimum packet size for transmission",
+          "Maximum IP address range",
+          "Number of hosts in a network"
+        ],
+        correctAnswer: "Maximum packet size that can be transmitted",
+      },
+      {
+        question: "Which protocol is used to find the hardware address of a host from an IP address?",
+        options: ["ARP", "RARP", "DNS", "ICMP"],
+        correctAnswer: "ARP",
+      },
+      {
+        question: "What is the function of the 'three-way handshake' in TCP?",
+        options: [
+          "To establish a connection between client and server",
+          "To transfer files securely",
+          "To encrypt the data packets",
+          "To disconnect a session"
+        ],
+        correctAnswer: "To establish a connection between client and server",
+      },
+    ],
+  };
+  
+    const levels = Object.keys(allLevels);
+    const scoreBeginner = parseInt(sessionStorage.getItem("score_beginner"), 10) || 0;
+    const scoreIntermediate = parseInt(sessionStorage.getItem("score_intermediate"), 10) || 0;
+    const scoreAdvanced = parseInt(sessionStorage.getItem("score_advanced"), 10) || 0;
+    const totalScore = scoreBeginner + scoreIntermediate + scoreAdvanced;
+    const totalPercentage = ((totalScore / 30) * 100).toFixed(2);
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
+  const [questions, setQuestions] = useState(allLevels[levels[0]]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [timer, setTimer] = useState(20);
+  const [levelCompleted, setLevelCompleted] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [showCompletionPopup, setShowCompletionPopup] = useState(false);
+  const currentQuestion = questions[currentQuestionIndex];
+  const scorePercentage = (correctAnswersCount / questions.length) * 100;
+  useEffect(() => {
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    const beginnerScore = parseInt(localStorage.getItem("score_beginner")) || 0;
+  
+    if (token) {
+      setAccessGranted(true);
+  
+      // If beginner is completed, start from the next level
+      if (beginnerScore >= 3) {
+        const nextLevelIndex = 1; // Assuming 'intermediate' is at index 1
+        setCurrentLevelIndex(nextLevelIndex);
+        setQuestions(allLevels[levels[nextLevelIndex]]);
+      } else {
+        setCurrentLevelIndex(0);
+        setQuestions(allLevels["beginner"]);
+      }
+  
+    } else {
+      setAccessGranted(false);
+      setCurrentLevelIndex(0);
+      setQuestions(allLevels["beginner"]);
+    }
+  }, []);
+  
+  // Load level data from localStorage on level change
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    const savedScore = parseInt(sessionStorage.getItem(levelKey)) || 0;
+  
+    if (savedScore >= 3) {
+      setCorrectAnswersCount(savedScore);
+      setShowCelebration(true);
+      setLevelCompleted(true);
+      setTimer(0); // stop timer
+    } else {
+      setCorrectAnswersCount(0);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    }
+  
+    setQuestions(allLevels[levels[currentLevelIndex]]);
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setShowCorrectAnswer(false);
+  }, [currentLevelIndex]);
+  
+  //  Save score and totalScore on update
+  useEffect(() => {
+    const levelKey = `score_${levels[currentLevelIndex]}`;
+    sessionStorage.setItem(levelKey, correctAnswersCount);
+  
+    const total = levels.reduce((acc, level) => {
+      const val = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+      return acc + val;
+    }, 0);
+  
+    sessionStorage.setItem("totalScore", total);
+  }, [correctAnswersCount, currentLevelIndex]);
+  
+  // Timer countdown unless level is completed
+  useEffect(() => {
+    if (showCelebration) return;
+  
+    const interval = setInterval(() => {
+      if (timer > 0) {
+        setTimer((prev) => prev - 1);
+      } else {
+        handleOptionSelect(null);
+      }
+    }, 1000);
+  
+    return () => clearInterval(interval);
+  }, [timer, showCelebration]);
+  
+  //  Select answer
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    if (option === currentQuestion.correctAnswer) {
+      setCorrectAnswersCount((prev) => prev + 1);
+    }
+    setShowCorrectAnswer(true);
+  
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex((prev) => prev + 1);
+        setSelectedOption(null);
+        setShowCorrectAnswer(false);
+        setTimer(20);
+      } else {
+        setShowCelebration(true);
+        setLevelCompleted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 1000);
+  };
+  
+  const handleNextLevel = () => {
+    const nextLevel = currentLevelIndex + 1;
+    if (nextLevel < levels.length) {
+      setCurrentLevelIndex(nextLevel);
+      setQuestions(allLevels[levels[nextLevel]]);
+      setCurrentQuestionIndex(0);
+      setSelectedOption(null);
+      setCorrectAnswersCount(0);
+      setShowCorrectAnswer(false);
+      setShowCelebration(false);
+      setLevelCompleted(false);
+      setTimer(20);
+    } else {
+      // Instead of alert, show popup card
+      setShowCompletionPopup(true);
+    }
+  };
+  
+  //  Restart current level
+  const handleRestartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setCorrectAnswersCount(0);
+    setShowCelebration(false);
+    setLevelCompleted(false);
+    setTimer(20);
+  };
+  
+  //  Navigate to next/previous question
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setSelectedOption(null);
+      setShowCorrectAnswer(false);
+      setTimer(20);
+    }
+  };
+  
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prev) => prev - 1);
+      setSelectedOption(null);
+      setShowCorrectAnswer(false);
+      setTimer(20);
+    }
+  };
+  
+  return (
+    <>
+
+    <div className="h-[100dvh]  bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <SubNavbar/>
+      <div className="flex justify-center mt-32 gap-4">
+  {levels.map((level, index) => {
+    const levelScore = parseInt(sessionStorage.getItem(`score_${level}`)) || 0;
+    const isBeginnerCompleted = parseInt(sessionStorage.getItem("score_beginner")) >= 3;
+
+    return (
+      <button
+        key={level}
+        className={`px-4 py-2 rounded  ${
+          currentLevelIndex === index
+            ? "bg-blue-600 text-white"
+            : levelScore >= 3
+            ? "bg-green-500 text-white"
+            : "bg-gray-300 text-black"
+        }`}
+        onClick={() => {
+          if (index === 0) {
+            // Beginner level - always accessible
+            setCurrentLevelIndex(index);
+          } else if (index === 1 && isBeginnerCompleted) {
+            // Intermediate level - only if beginner completed
+            setCurrentLevelIndex(index);
+          } else if (index === 2 && isBeginnerCompleted && levelScore >= 3) {
+            // Advanced level - only if intermediate is completed
+            const intermediateScore = parseInt(sessionStorage.getItem("score_intermediate")) || 0;
+            if (intermediateScore >= 3) {
+              setCurrentLevelIndex(index);
+            } else {
+              alert("Please complete Intermediate level first!");
             }
-          ];
-          
-               
-      
-     
-      
-                          const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-                          const [selectedOption, setSelectedOption] = useState(null);
-                          const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
-                          const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-                          const [showCelebration, setShowCelebration] = useState(false);
-                          const [timer, setTimer] = useState(20);
-                          const [score] = useState(localStorage.getItem("bestScore") || 0);
-                        
-                          const CORRECT_SOUND = new Howl({ src: ["/sounds/correct.mp3"] });
-                          const WRONG_SOUND = new Howl({ src: ["/sounds/wrong.mp3"] });
-                        
-                          const currentQuestion = questions[currentQuestionIndex];
-                        
-                          useEffect(() => {
-                            const interval = setInterval(() => {
-                              if (timer > 0) setTimer((t) => t - 1);
-                              else handleOptionSelect(null);
-                            }, 1000);
-                            return () => clearInterval(interval);
-                          }, [timer]);
-                        
-                          useEffect(() => {
-                            localStorage.setItem("score", correctAnswersCount);
-                          }, [correctAnswersCount]);
-                        
-                          const handleOptionSelect = (option) => {
-                            setSelectedOption(option);
-                            if (option === currentQuestion.correctAnswer) {
-                              setCorrectAnswersCount((prev) => prev + 1);
-                              CORRECT_SOUND.play();
-                            } else {
-                              WRONG_SOUND.play();
-                            }
-                            setShowCorrectAnswer(true);
-                            setTimeout(() => {
-                              if (currentQuestionIndex < questions.length - 1) {
-                                setCurrentQuestionIndex((prev) => prev + 1);
-                                setSelectedOption(null);
-                                setShowCorrectAnswer(false);
-                                setTimer(20);
-                              } else {
-                                setShowCelebration(true);
-                                window.scrollTo({ top: 0, behavior: "smooth" });
-                              }
-                            }, 1000);
-                          };
-                        
-                          const handlePrevious = () => {
-                            if (currentQuestionIndex > 0) {
-                              setCurrentQuestionIndex((prev) => prev - 1);
-                              setSelectedOption(null);
-                              setShowCorrectAnswer(false);
-                              setTimer(20);
-                            }
-                          };
-                        
-                          const handleNext = () => {
-                            if (currentQuestionIndex < questions.length - 1) {
-                              setCurrentQuestionIndex((prev) => prev + 1);
-                              setSelectedOption(null);
-                              setShowCorrectAnswer(false);
-                              setTimer(20);
-                            } else {
-                              setShowCelebration(true);
-                              window.scrollTo({ top: 0, behavior: "smooth" });
-                            }
-                          };
-                        
-                          const handleRestartQuiz = () => {
-                            setCurrentQuestionIndex(0);
-                            setSelectedOption(null);
-                            setCorrectAnswersCount(0);
-                            setShowCelebration(false);
-                            setTimer(20);
-                          };
-                        
-                          const handleExit = () => {
-                            navigate("/");
-                          };
-                        
-                          const scorePercentage = (correctAnswersCount / questions.length) * 100;
-                        
-                          return (
-                            <div className="h-[100dvh] bg-gradient-to-br from-blue-500 to-sky-600 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-                              <SubNavbar />
-                        
-                              {showCelebration && scorePercentage >= 30 && (
-                                <Confetti width={window.innerWidth} height={window.innerHeight} />
-                              )}
-                        
-                              <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-20 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
-                                {/* <div className="w-full h-4 bg-gray-200 relative mt-2">
-                                  <div
-                                    className="absolute top-0 left-0 h-full bg-blue-500"
-                                    style={{
-                                      width: `${(correctAnswersCount / questions.length) * 100}%`,
-                                    }}
-                                  ></div>
-                                </div> */}
-                        
-                                <div className="flex flex-col h-full p-6">
-                                  {showCelebration ? (
-                                    <motion.div
-                                      className="flex flex-col items-center justify-center h-full text-center p-6"
-                                      initial={{ opacity: 0, scale: 0.9 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      transition={{ duration: 0.6 }}
-                                    >
-                                      {scorePercentage < 30 ? (
-                                        <>
-                                          <h2 className="text-2xl font-bold text-red-600 mb-2">Keep Practicing!</h2>
-                                          <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                                          <p className="text-blue-500 font-medium mb-2">Try Again!</p>
-                                        </>
-                                      ) : (
-                                        <>
-                                          <h2 className="text-3xl font-bold text-blue-700 mb-2">🎉 Congratulations! 🎉</h2>
-                                          <p className="text-lg text-gray-700 mb-2">You've completed the quiz.</p>
-                                          <p className="text-blue-500 font-medium mb-2">Great job!</p>
-                                        </>
-                                      )}
-                                      <p className="text-xl font-semibold">
-                                        Your Score: {correctAnswersCount}/{questions.length} ({scorePercentage.toFixed(2)}%)
-                                      </p>
-                                      <div className="mt-6 space-x-4">
-                                        <button onClick={handleRestartQuiz} className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Restart Quiz</button>
-                                        <button onClick={handleExit} className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Exit</button>
-                                      </div>
-                                    </motion.div>
-                                  ) : (
-                                    <>
-                                      <div className="mb-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white p-4 rounded-md shadow">
-                                        <h2 className="text-lg font-semibold">
-                                          Question {currentQuestionIndex + 1}: {currentQuestion.question}
-                                        </h2>
-                                        <p className="text-sm text-white">Time left: {timer}s</p>
-                                      </div>
-                        
-                                      <div className="space-y-3 flex-1">
-                                        {currentQuestion.options.map((option, index) => (
-                                          <motion.button
-                                            key={index}
-                                            onClick={() => handleOptionSelect(option)}
-                                            className={`w-full px-4 py-2 border rounded-lg transition-all duration-300 text-left font-medium ${
-                                              selectedOption === option
-                                                ? option === currentQuestion.correctAnswer
-                                                  ? "border-green-600 bg-green-100 text-green-800"
-                                                  : "border-red-600 bg-red-100 text-red-800"
-                                                : "hover:bg-gray-100"
-                                            }`}
-                                            disabled={selectedOption !== null}
-                                          >
-                                            {option}
-                                          </motion.button>
-                                        ))}
-                                      </div>
-                        
-                                      {showCorrectAnswer && (
-                                        <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
-                                          Correct Answer:{" "}
-                                          <span className="font-semibold">{currentQuestion.correctAnswer}</span>
-                                        </div>
-                                      )}
-                        
-                                      <div className="flex justify-between items-center mt-6">
-                                        <button
-                                          onClick={handlePrevious}
-                                          disabled={currentQuestionIndex === 0}
-                                          className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                                            currentQuestionIndex === 0
-                                              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                                              : "bg-gray-200 hover:bg-gray-300 text-gray-800"
-                                          }`}
-                                        >
-                                          Previous
-                                        </button>
-                        
-                                        <button
-                                          onClick={() => setShowCorrectAnswer(true)}
-                                          className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition"
-                                        >
-                                          View Answer
-                                        </button>
-                        
-                                        <button
-                                          onClick={handleNext}
-                                          className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                                            currentQuestionIndex === questions.length - 1
-                                              ? "bg-green-500 text-white hover:bg-green-600"
-                                              : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                                          }`}
-                                        >
-                                          {currentQuestionIndex === questions.length - 1 ? "Finish" : "Next"}
-                                        </button>
-                                      </div>
-                                    </>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        };
-                        
-                        
-          
+          } else {
+            alert("Please complete the Beginner level first!");
+          }
+        }}
+      >
+        {level.charAt(0).toUpperCase() + level.slice(1)}
+        {levelScore >= 3 && " ✅"}
+      </button>
+    );
+  })}
+</div>
+
+      {showCelebration && scorePercentage >= 30 && (
+        <Confetti width={window.innerWidth} height={window.innerHeight} />
+      )}
+      <div className="w-[90vw] md:w-[50vw] h-[65vh] mt-10 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col justify-between overflow-hidden relative z-10">
+        <div className="flex flex-col h-full p-6">
+          {showCelebration ? (
+        <div className="flex flex-col h-full p-6">
+        {showCelebration && (
+          <motion.div
+            className="flex flex-col items-center justify-center h-full text-center p-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-2 animate-bounce">
+              🎉 Congratulations! 🎉
+            </h2>
+            <p className="text-lg text-gray-700 mb-2">
+              {scorePercentage >= 30
+                ? "Well done on completing this level."
+                : "Try again to improve your score."}
+            </p>
+            <p className="text-blue-500 font-medium mb-4">
+              Current Level Score: {correctAnswersCount}/{questions.length} ({scorePercentage.toFixed(2)}%)
+            </p>
+  
+            {/* Scores Summary */}
+            <div className="w-full max-w-md bg-gray-100 p-4 rounded-lg shadow-md text-left mb-4">
+              <h3 className="text-lg font-semibold text-blue-600 mb-2">Scores Summary</h3>
+              <ul className="space-y-1">
+                <li className="flex justify-between">
+                  <span>Beginner Level</span>
+                  <span>{scoreBeginner} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Intermediate Level</span>
+                  <span>{scoreIntermediate} / 10</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Advanced Level</span>
+                  <span>{scoreAdvanced} / 10</span>
+                </li>
+                <li className="flex justify-between font-bold text-green-700 pt-2 border-t border-gray-300">
+                  <span>Total Score</span>
+                  <span>{totalScore} / 30</span>
+                </li>
+                <li className="flex justify-between font-semibold text-purple-700">
+                  <span>Total Percentage</span>
+                  <span>{totalPercentage}%</span>
+                </li>
+              </ul>
+            </div>
+  
+            {/* Buttons */}
+            <div className="mt-4 space-x-4">
+              <button
+                onClick={handleRestartQuiz}
+                className="px-4 py-2 mb-2 bg-blue-500 text-white rounded-lg"
+              >
+                Restart Level
+              </button>
+  
+              {accessGranted ? (
+                scorePercentage >= 30 ? (
+                  <button
+                    onClick={handleNextLevel}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Next Level
+                  </button>
+                ) : null
+              ) : (
+                <div className="flex flex-col items-center space-y-2">
+                  <button
+                    onClick={() => navigate("/loginform")}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                  >
+                    Login to Unlock More Levels
+                  </button>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </div>
+  
+
+          ) : (
+            <>
+              <div className="mb-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white p-4 rounded-md shadow">
+                <h2 className="text-lg font-semibold">Level: {levels[currentLevelIndex].toUpperCase()}</h2>
+                <h3 className="text-sm">Question {currentQuestionIndex + 1}: {currentQuestion.question}</h3>
+                <p className="text-sm">Time left: {timer}s</p>
+              </div>
+              <div className="space-y-3 flex-1">
+                {currentQuestion.options.map((option, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => handleOptionSelect(option)}
+                    className={`w-full px-4 py-2 border rounded-lg transition-all duration-300 text-left font-medium ${
+                      selectedOption === option
+                        ? option === currentQuestion.correctAnswer
+                          ? "border-green-600 bg-green-100 text-green-800"
+                          : "border-red-600 bg-red-100 text-red-800"
+                        : "hover:bg-gray-100"
+                    }`}
+                    disabled={selectedOption !== null}
+                  >
+                    {option}
+                  </motion.button>
+                ))}
+              </div>
+              {showCorrectAnswer && (
+                <div className="p-3 bg-green-100 border-l-4 border-green-600 text-green-800 rounded">
+                  Correct Answer: <span className="font-semibold">{currentQuestion.correctAnswer}</span>
+                </div>
+              )}
+              <div className="flex justify-between mt-4">
+                <button
+                  onClick={handlePreviousQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+                  disabled={currentQuestionIndex === 0}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={handleNextQuestion}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+                  disabled={currentQuestionIndex === questions.length - 1}
+                >
+                  Next
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
     
-  export default Cn;
+      {/* Popup card for completion */}
+      {showCompletionPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm text-center mx-4">
+            <div className="text-5xl mb-4 animate-bounce">🎉</div>
+            <h2 className="text-2xl font-bold mb-2 text-blue-700">
+              You've completed all levels!
+            </h2>
+            <p className="mb-6 text-gray-700">
+              Congratulations on finishing the quiz! 🎊
+            </p>
+            <button
+              onClick={() => {
+                setShowCompletionPopup(false);
+                navigate("/");
+              }}
+              className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 text-white px-6 py-2 rounded-lg font-semibold transition"
+            >
+              Go to Home
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Cn;

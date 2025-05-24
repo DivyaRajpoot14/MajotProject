@@ -41,7 +41,15 @@ import DsInterviewQuestions from '../components/InterviewQuestion/DataStructureI
 import DwhInterviewQuestions from '../components/InterviewQuestion/dwhInterviewque';
 import HtmlInterviewQuestions from '../components/InterviewQuestion/htmlInterviewque';
 import CssInterviewQuestions from '../components/InterviewQuestion/cssInterviewque';
-
+import JsInterviewQuestions from '../components/InterviewQuestion/jsInterviewque';
+import ReactInterviewQuestions from '../components/InterviewQuestion/ReactInterviewque';
+import OsInterviewQuestions from '../components/InterviewQuestion/osInterviewque';
+import CnInterviewQuestions from '../components/InterviewQuestion/cnInterviewque';
+import SeInterviewQuestions from '../components/InterviewQuestion/seInterviewque';
+import AspInterviewQuestions from '../components/InterviewQuestion/aspinterviewque';
+import AiInterviewQuestions from '../components/InterviewQuestion/aiinterviewque';
+import CCInterviewQuestions from '../components/InterviewQuestion/ccinterviewque';
+import AdInterviewQuestions from '../components/InterviewQuestion/adinterviewque';
 
 // Quiz Components
 
@@ -88,6 +96,15 @@ const router = createBrowserRouter([
       {path:'/dwhiq',element:<DwhInterviewQuestions/>},
       {path:'/htmliq',element:<HtmlInterviewQuestions/>},
       {path: '/cssiq', element: <CssInterviewQuestions /> },
+      {path: '/jsiq', element: <JsInterviewQuestions/> },
+      {path: '/reactiq', element: <ReactInterviewQuestions /> },
+      {path: '/osiq', element: <OsInterviewQuestions /> },
+      {path: '/cniq', element: <CnInterviewQuestions /> },
+      {path: '/seiq', element: <SeInterviewQuestions /> },
+      {path: '/aspiq', element: <AspInterviewQuestions /> },
+      {path: '/aiiq', element: <AiInterviewQuestions /> },
+      {path: '/cciq', element: <CCInterviewQuestions /> },
+      {path: '/adiq', element: <AdInterviewQuestions /> },
     ],
 
   },
